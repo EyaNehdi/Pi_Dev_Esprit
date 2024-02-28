@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="483.0" prefWidth="692.0" style="-fx-background-color: #F5B041;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjouterreservationController">
+   <children>
+      <Text layoutX="193.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom_eleve" wrappingWidth="121.35821533203136">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Text layoutX="193.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom_evenement" wrappingWidth="182.0000000000001">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <TextField fx:id="tf_nomeleve" layoutX="385.0" layoutY="78.0" prefHeight="32.0" prefWidth="167.0" />
+      <TextField fx:id="tf_nomevent" layoutX="385.0" layoutY="134.0" prefHeight="32.0" prefWidth="167.0" />
+      <Button layoutX="385.0" layoutY="203.0" mnemonicParsing="false" onAction="#Ajouter_reservation" prefHeight="38.0" prefWidth="84.0" style="-fx-background-radius: 10;" text="Ajouter" textFill="#3e2ee7">
+         <font>
+            <Font name="Britannic Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="500.0" layoutY="203.0" mnemonicParsing="false" onAction="#Afficher_reservation" prefHeight="38.0" prefWidth="84.0" style="-fx-background-radius: 10;" text="Afficher" textFill="#3e2ee7">
+         <font>
+            <Font name="Britannic Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="483.0" fitWidth="182.0">
+         <image>
+            <Image url="@Images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
