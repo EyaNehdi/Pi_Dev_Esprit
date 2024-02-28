@@ -1,52 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="415.0" prefWidth="627.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.afficherformationcontrollers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.afficherformationcontrollers">
     <children>
-        <TableView fx:id="tv_formation" layoutX="6.0" layoutY="93.0" prefHeight="318.0" prefWidth="370.0" style="-fx-background-color: gris;">
-            <columns>
-                <TableColumn fx:id="col_nom" prefWidth="166.0" text="Nom formation" />
-                <TableColumn fx:id="col_date" prefWidth="202.0" text="Date de la formation" />
-            </columns>
-        </TableView>
-        
-        <Button fx:id="btnRetour" layoutX="6.0" layoutY="20.0" onAction="#retournerAjoutFormation" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Retour" textFill="WHITE" />
-        <Button fx:id="tf_mod" layoutX="474.0" layoutY="237.0" mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="86.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="modifier" textFill="WHITE" />
-        <Button fx:id="tf_sup" layoutX="474.0" layoutY="275.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="25.0" prefWidth="86.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="supprimer" textFill="WHITE" />
-        <ImageView fitHeight="65.0" fitWidth="217.0" layoutX="453.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@Assets/a.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="170.0" fitWidth="218.0" layoutX="400.0" layoutY="62.0">
-            <image>
-                <Image url="@Assets/tt.png" />
-            </image>
-        </ImageView>
-        <TextField fx:id="fxrecherche" layoutX="215.0" layoutY="8.0" onAction="#chercher" promptText="chercher formation" style="-fx-background-radius: 15;" />
-        <Button fx:id="pdf" layoutX="393.0" layoutY="374.0" mnemonicParsing="false" onAction="#telecharger" prefHeight="25.0" prefWidth="236.0" text="cliquer ici pour telecharger le fichier pdf" />
-        <Button fx:id="excel" layoutX="393.0" layoutY="341.0" mnemonicParsing="false" onAction="#Excel" text="cliquer ici pour telecharger le fichier excel" />
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="364.0" layoutY="8.0">
-         <image>
-            <Image url="@Assets/icons8-search-48%20(1).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="57.0" layoutY="20.0">
-         <image>
-            <Image url="@Assets/icons8-return-48.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="407.0" layoutY="8.0">
-         <image>
-            <Image url="@Assets/icons8-notification-64.png" />
-         </image>
-      </ImageView>
+        <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+                    <children>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Ben Affleck" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/ben-affleck.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding></Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/ic_usr.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/profile-adam-levine.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/profile-james-marsden.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </VBox>
+                <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: blue; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+        <Pane layoutX="259.0" layoutY="25.0" prefHeight="649.0" prefWidth="840.0" style="-fx-background-color: bleu;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <Pane layoutX="76.0" layoutY="106.0" />
+
+                <TableView fx:id="tv_formation" layoutX="6.0" layoutY="93.0" prefHeight="318.0" prefWidth="370.0" style="-fx-background-color: gris;">
+                    <columns>
+                        <TableColumn fx:id="col_nom" prefWidth="166.0" text="Nom formation" />
+                        <TableColumn fx:id="col_date" prefWidth="202.0" text="Date de la formation" />
+                    </columns>
+                </TableView>
+
+                <Button fx:id="btnRetour" layoutX="6.0" layoutY="20.0" onAction="#retournerAjoutFormation" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Retour" textFill="WHITE" />
+                <Button fx:id="tf_mod" layoutX="549.0" layoutY="343.0" mnemonicParsing="false" onAction="#modifier" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="modifier" textFill="WHITE" />
+                <Button fx:id="tf_sup" layoutX="549.0" layoutY="399.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="42.0" prefWidth="105.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="supprimer" textFill="WHITE" />
+                <ImageView fitHeight="65.0" fitWidth="217.0" layoutX="453.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Assets/a.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="259.0" fitWidth="413.0" layoutX="400.0" layoutY="62.0">
+                    <image>
+                        <Image url="@Assets/tt.png" />
+                    </image>
+                </ImageView>
+                <TextField fx:id="fxrecherche" layoutX="215.0" layoutY="8.0" onAction="#chercher" promptText="chercher formation" style="-fx-background-radius: 15;" />
+                <Button fx:id="pdf" layoutX="453.0" layoutY="542.0" mnemonicParsing="false" onAction="#telecharger" prefHeight="25.0" prefWidth="236.0" text="cliquer ici pour telecharger le fichier pdf" />
+                <Button fx:id="excel" layoutX="453.0" layoutY="500.0" mnemonicParsing="false" onAction="#Excel" text="cliquer ici pour telecharger le fichier excel" />
+                <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="364.0" layoutY="8.0">
+                    <image>
+                        <Image url="@Assets/icons8-search-48%20(1).png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="57.0" layoutY="20.0">
+                    <image>
+                        <Image url="@Assets/icons8-return-48.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="407.0" layoutY="8.0">
+                    <image>
+                        <Image url="@Assets/icons8-notification-64.png" />
+                    </image>
+                </ImageView>
+
+
+            </children>
+        </Pane>
     </children>
 </AnchorPane>

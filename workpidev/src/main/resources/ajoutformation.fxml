@@ -1,49 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterformationcontrollers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterformationcontrollers">
    <children>
-      <TextField fx:id="tfnom" layoutX="437.0" layoutY="156.0" prefHeight="25.0" prefWidth="174.0" promptText="entrer le nom du formation" />
-      <DatePicker fx:id="tfdate" layoutX="416.0" layoutY="200.0" prefHeight="25.0" prefWidth="196.0" promptText="enter la date du formation" />
-      <Button fx:id="btnRetour" layoutX="141.0" layoutY="361.0" onAction="#retournerAfficherFormation" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Nos formations" textFill="WHITE">
-         <!-- Votre contenu actuel du bouton de retour -->
-      </Button>
-      <Button fx:id="btnAjoutCertificat" layoutX="14.0" layoutY="361.0" onAction="#naviguerVersAjoutCertificat" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Ajouter Certificat" textFill="WHITE" />
+      <!-- Left Side -->
+      <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+               <children>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Ben Affleck" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ben-affleck.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ic_usr.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/profile-adam-levine.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/profile-james-marsden.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: blue; -fx-background-radius: 5;">
+               <children>
+                  <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
 
-      <Button cache="true" layoutX="419.0" layoutY="237.0" mnemonicParsing="false" onAction="#Ajouterformation" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 8; -fx-background-color: blue;" styleClass="Background:black;" text="Ajouter" textFill="WHITE" />
-      <Button layoutX="512.0" layoutY="237.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Afficherformation" opacity="0.91" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Afficher" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
-      <Text fill="#1a0ea4" layoutX="300.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Formation:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <Text fill="#1a0ea4" fontSmoothingType="LCD" layoutX="300.0" layoutY="218.0" strokeType="INSIDE" strokeWidth="0.0" text="Date formation:">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="339.0" fitWidth="377.0" layoutX="2.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Assets/c.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="144.0" fitWidth="398.0" layoutX="254.0" layoutY="269.0">
-         <image>
-            <Image url="@Assets/ee.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="72.0" fitWidth="189.0" layoutX="452.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Assets/a.png" />
-         </image>
-      </ImageView>
+      <!-- Right Side -->
+      <Pane layoutX="259.0" layoutY="25.0" prefHeight="649.0" prefWidth="840.0" style="-fx-background-color: bleu;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+            <Pane layoutX="76.0" layoutY="106.0" />
+            <Pane layoutX="559.0" layoutY="106.0" prefHeight="190.0" prefWidth="174.0">
+               <children>
+                  <DatePicker fx:id="tfdate" layoutX="-57.0" layoutY="116.0" prefHeight="25.0" prefWidth="196.0" promptText="enter la date du formation" />
+                  <TextField fx:id="tfnom" layoutX="-41.0" layoutY="42.0" prefHeight="25.0" prefWidth="174.0" promptText="entrer le nom du formation" />
+               </children>
+            </Pane>
+            <Button fx:id="btnRetour" layoutX="182.0" layoutY="538.0" onAction="#retournerAfficherFormation" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Nos formations" textFill="WHITE">
+               <!-- Votre contenu actuel du bouton de retour -->
+            </Button>
+            <Button fx:id="btnAjoutCertificat" layoutX="20.0" layoutY="538.0" onAction="#naviguerVersAjoutCertificat" prefHeight="35.0" prefWidth="130.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Ajouter Certificat" textFill="WHITE" />
+
+            <Button cache="true" layoutX="416.0" layoutY="296.0" mnemonicParsing="false" onAction="#Ajouterformation" prefHeight="35.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-background-color: blue;" styleClass="Background:black;" text="Ajouter" textFill="WHITE" />
+            <Button layoutX="550.0" layoutY="296.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Afficherformation" opacity="0.91" prefHeight="35.0" prefWidth="79.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Afficher" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Text fill="#1a0ea4" layoutX="378.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Formation:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#1a0ea4" fontSmoothingType="LCD" layoutX="364.0" layoutY="239.0" strokeType="INSIDE" strokeWidth="0.0" text="Date formation:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="339.0" fitWidth="377.0" layoutX="20.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/c.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="166.0" fitWidth="480.0" layoutX="313.0" layoutY="412.0">
+               <image>
+                  <Image url="@Assets/ee.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="72.0" fitWidth="189.0" layoutX="452.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Assets/a.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
