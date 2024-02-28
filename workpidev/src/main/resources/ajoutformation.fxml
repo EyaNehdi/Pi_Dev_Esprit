@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -13,102 +12,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterformationcontrollers">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ajouterformationcontrollers">
    <children>
-      <!-- Left Side -->
-      <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
-               <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Ben Affleck" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/ben-affleck.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/ic_usr.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/profile-adam-levine.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </Button>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
-                     <graphic>
-                        <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/profile-james-marsden.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </Button>
-               </children>
-            </VBox>
-            <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: blue; -fx-background-radius: 5;">
-               <children>
-                  <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </AnchorPane>
 
       <!-- Right Side -->
-      <Pane layoutX="259.0" layoutY="25.0" prefHeight="649.0" prefWidth="840.0" style="-fx-background-color: bleu;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="25.0">
+      <Pane layoutX="259.0" layoutY="25.0" prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: bleu;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="25.0">
          <children>
-            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+            <Pane layoutX="-30.0" layoutY="-173.0" prefHeight="296.0" prefWidth="421.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
             <Pane layoutX="76.0" layoutY="106.0" />
-            <Pane layoutX="559.0" layoutY="106.0" prefHeight="190.0" prefWidth="174.0">
-               <children>
-                  <DatePicker fx:id="tfdate" layoutX="-57.0" layoutY="116.0" prefHeight="25.0" prefWidth="196.0" promptText="enter la date du formation" />
-                  <TextField fx:id="tfnom" layoutX="-41.0" layoutY="42.0" prefHeight="25.0" prefWidth="174.0" promptText="entrer le nom du formation" />
-               </children>
-            </Pane>
-            <Button fx:id="btnRetour" layoutX="182.0" layoutY="538.0" onAction="#retournerAfficherFormation" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Nos formations" textFill="WHITE">
+            <Pane layoutX="558.0" layoutY="94.0" prefHeight="193.0" prefWidth="180.0" />
+            <Button fx:id="btnRetour" layoutX="184.0" layoutY="420.0" onAction="#retournerAfficherFormation" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Nos formations" textFill="WHITE">
                <!-- Votre contenu actuel du bouton de retour -->
             </Button>
-            <Button fx:id="btnAjoutCertificat" layoutX="20.0" layoutY="538.0" onAction="#naviguerVersAjoutCertificat" prefHeight="35.0" prefWidth="130.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Ajouter Certificat" textFill="WHITE" />
+            <Button fx:id="btnAjoutCertificat" layoutX="33.0" layoutY="420.0" onAction="#naviguerVersAjoutCertificat" prefHeight="35.0" prefWidth="130.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Ajouter Certificat" textFill="WHITE" />
 
-            <Button cache="true" layoutX="416.0" layoutY="296.0" mnemonicParsing="false" onAction="#Ajouterformation" prefHeight="35.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-background-color: blue;" styleClass="Background:black;" text="Ajouter" textFill="WHITE" />
-            <Button layoutX="550.0" layoutY="296.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Afficherformation" opacity="0.91" prefHeight="35.0" prefWidth="79.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Afficher" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
-            <Text fill="#1a0ea4" layoutX="378.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Formation:">
+            <Button cache="true" layoutX="432.0" layoutY="270.0" mnemonicParsing="false" onAction="#Ajouterformation" prefHeight="35.0" prefWidth="85.0" style="-fx-background-radius: 8; -fx-background-color: blue;" styleClass="Background:black;" text="Ajouter" textFill="WHITE" />
+            <Button layoutX="553.0" layoutY="270.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#Afficherformation" opacity="0.91" prefHeight="35.0" prefWidth="79.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Afficher" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Text fill="#1a0ea4" layoutX="378.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom du Formation:" wrappingWidth="122.99999725818634">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fill="#1a0ea4" fontSmoothingType="LCD" layoutX="364.0" layoutY="239.0" strokeType="INSIDE" strokeWidth="0.0" text="Date formation:">
+            <Text fill="#1a0ea4" fontSmoothingType="LCD" layoutX="326.0" layoutY="229.0" strokeType="INSIDE" strokeWidth="0.0" text="Date formation:">
                <font>
                   <Font size="15.0" />
                </font>
@@ -118,7 +43,7 @@
                   <Image url="@Assets/c.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="166.0" fitWidth="480.0" layoutX="313.0" layoutY="412.0">
+            <ImageView fitHeight="71.0" fitWidth="310.0" layoutX="320.0" layoutY="360.0">
                <image>
                   <Image url="@Assets/ee.png" />
                </image>
@@ -128,7 +53,51 @@
                   <Image url="@Assets/a.png" />
                </image>
             </ImageView>
+            <TextField fx:id="tfnom" layoutX="451.0" layoutY="128.0" prefHeight="20.0" prefWidth="153.0" promptText="entrer le nom du formation" />
+            <DatePicker fx:id="tfdate" layoutX="438.0" layoutY="210.0" prefHeight="25.0" prefWidth="180.0" promptText="enter la date du formation" />
          </children>
       </Pane>
+      <AnchorPane layoutY="-1.0" prefHeight="563.0" prefWidth="231.0" style="-fx-background-color: orange;">
+         <children>
+            <VBox layoutX="12.0" layoutY="242.0" prefHeight="280.0" prefWidth="216.0" style="-fx-background-color: orange;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Voir_Cours" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Cours" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Evenements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Formations" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Equipements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Abonnements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutX="16.0" layoutY="154.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3498DB; -fx-background-radius: 20;">
+               <children>
+                  <Label fx:id="lb_Accueil" layoutX="48.0" layoutY="9.0" prefHeight="33.0" prefWidth="104.0" text="Accueil" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

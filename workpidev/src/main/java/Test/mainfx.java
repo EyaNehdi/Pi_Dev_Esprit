@@ -15,7 +15,7 @@ public class mainfx extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ajoutformation.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dash.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);

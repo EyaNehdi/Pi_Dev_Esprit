@@ -136,4 +136,19 @@ public class ajoutcertificatcpntrollers {
             e.printStackTrace();
         }
     }
+
+    public void Voir_Abonnements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Equipements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Formations(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Evenements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Cours(ActionEvent actionEvent) {
+    }
 }

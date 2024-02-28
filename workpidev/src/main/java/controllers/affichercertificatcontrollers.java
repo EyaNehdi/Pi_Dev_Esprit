@@ -2,6 +2,7 @@ package controllers;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -256,4 +257,18 @@ public class affichercertificatcontrollers {
         }
     }
 
+    public void Voir_Abonnements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Equipements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Formations(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Evenements(ActionEvent actionEvent) {
+    }
+
+    public void Voir_Cours(ActionEvent actionEvent) {
+    }
 }
