@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="580.0" prefWidth="615.0" stylesheets="style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCours">
+   <children>
+      <Label layoutX="24.0" layoutY="26.0" text="List Cours">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tv_cours" layoutX="36.0" layoutY="102.0" onMouseClicked="#mouseClicked" prefHeight="370.0" prefWidth="551.0">
+        <columns>
+          <TableColumn fx:id="titre" prefWidth="146.40003967285156" text="titre" />
+            <TableColumn fx:id="contenu" prefWidth="403.2000152587891" text="Contenu" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSupprimer" layoutX="62.0" layoutY="504.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
+      <Button fx:id="btnModifier" layoutX="179.0" layoutY="504.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="26.0" prefWidth="78.0" text="Modifier" />
+      <Button fx:id="btnRetour" layoutX="502.0" layoutY="504.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
+      <TextField fx:id="tf_recherche" layoutX="395.0" layoutY="36.0" promptText="Rechercher..." />
+      <Label layoutX="312.0" layoutY="40.0" text="Rechercher : " />
+   </children>
+</AnchorPane>

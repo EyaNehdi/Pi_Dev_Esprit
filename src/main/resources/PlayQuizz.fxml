@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PlayQuizz">
+   <children>
+      <Label fx:id="question" layoutX="14.0" layoutY="113.0" text="Question numero 1" textFill="BLUE">
+         <font>
+            <Font name="Comic Sans MS" size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="opt1" layoutX="87.0" layoutY="187.0" mnemonicParsing="false" onAction="#opt1Clicked" prefHeight="49.0" prefWidth="114.0" text="opt1" />
+      <Button fx:id="opt2" layoutX="399.0" layoutY="188.0" mnemonicParsing="false" onAction="#opt2Clicked" prefHeight="50.0" prefWidth="114.0" text="opt2" />
+      <Button fx:id="opt3" layoutX="87.0" layoutY="296.0" mnemonicParsing="false" onAction="#opt3Clicked" prefHeight="50.0" prefWidth="114.0" text="opt3" />
+      <Button fx:id="opt4" layoutX="399.0" layoutY="296.0" mnemonicParsing="false" onAction="#opt4Clicked" prefHeight="50.0" prefWidth="114.0" text="opt4" />
+   </children>
+</AnchorPane>

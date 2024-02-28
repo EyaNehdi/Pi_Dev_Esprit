@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ResultController">
+   <children>
+      <Label layoutX="224.0" layoutY="41.0" text="Resultat">
+         <font>
+            <Font name="Comic Sans MS" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="remark" layoutX="39.0" layoutY="125.0" prefHeight="31.0" prefWidth="174.0" text="Bravo ! Bien joué">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="marks" layoutX="39.0" layoutY="200.0" style="-fx-background-color: Skyblue; -fx-background-radius: 16; -fx-border-radius: 16;" text="9/10">
+         <font>
+            <Font name="System Bold Italic" size="22.0" />
+         </font>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </Label>
+      <ProgressIndicator fx:id="correct_progress" layoutX="224.0" layoutY="191.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="90.0" progress="0.9" style="-fx-background-color: lightgreen; -fx-background-radius: 16; -fx-border-radius: 16; -fx-progress-color: green;">
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </ProgressIndicator>
+      <ProgressIndicator fx:id="wrong_progress" layoutX="423.0" layoutY="191.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="90.0" progress="0.1" style="-fx-background-color: FFCDD2; -fx-background-radius: 16; -fx-border-radius: 16; -fx-progress-color: red;">
+         <padding>
+            <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+         </padding>
+      </ProgressIndicator>
+      <Label fx:id="markstext" layoutX="21.0" layoutY="311.0" text="9 points marqué " textFill="#09a5cc">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="wrongtext" layoutX="408.0" layoutY="311.0" text="Réponse injuste : 1" textFill="#dc1717">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="correcttext" layoutX="209.0" layoutY="311.0" text="Réponse correcte : 9" textFill="#08c725">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
