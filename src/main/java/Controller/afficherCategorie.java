@@ -5,8 +5,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import entities.Categorie;
+import entities.Equipement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.CategorieService;
-import Controller.ajouterCategorie;
+import Controller.afficherCategorie;
 
 public class afficherCategorie {
         CategorieService serviceCategorie = new CategorieService();
@@ -45,21 +49,25 @@ public class afficherCategorie {
 
         @FXML
         private Button btnSupprimer;
+        private FilteredList<Categorie> filteredCategorie;
         @FXML
         void initialize() {
                 try {
-                       btnModifier.setDisable(true);
-                       btnSupprimer.setDisable(true);
+                        btnModifier.setDisable(true);
+                        btnSupprimer.setDisable(true);
                         ObservableList<Categorie> categorie = FXCollections.observableList(serviceCategorie.readAll());
                         tv_categorie.setItems(categorie);
-                       // id_categorie.setCellValueFactory(new PropertyValueFactory<>("id_categorie"));
                         numSerie.setCellValueFactory(new PropertyValueFactory<>("numSerie"));
                         description.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+
                 } catch (SQLException e) {
                         throw new RuntimeException(e);
                 }
-
         }
+
+
+
 
         @FXML
         public void mouseClicked (MouseEvent mouseEvent) {
@@ -88,24 +96,43 @@ public class afficherCategorie {
         @FXML
         public void delete(ActionEvent event) {
                 try {
+                        System.out.println("Début de la méthode delete");
+
                         Categorie categorieSelectionne = tv_categorie.getSelectionModel().getSelectedItem();
 
                         if (categorieSelectionne != null) {
-                                CategorieService ps = new CategorieService();
-                                ps.delete(categorieSelectionne);
-                                initialize();
+                                System.out.println("Catégorie sélectionnée : " + categorieSelectionne.toString());
+
+                                serviceCategorie.delete(categorieSelectionne);
+                                System.out.println("Catégorie supprimée de la base de données");
+
+                                // Mettre à jour la liste observable
+                                ObservableList<Categorie> categories = FXCollections.observableList(serviceCategorie.readAll());
+                                tv_categorie.setItems(categories);
+                                System.out.println("Liste des catégories mise à jour");
+
+                                // Rafraîchir la TableView
+                                tv_categorie.refresh();
+                                System.out.println("TableView rafraîchie");
+
                         } else {
-                                // Afficher une alerte si aucun cours n'est sélectionné
+                                // Afficher une alerte si aucun équipement n'est sélectionné
                                 Alert alert = new Alert(Alert.AlertType.WARNING);
                                 alert.setTitle("Aucune sélection");
                                 alert.setHeaderText(null);
-                                alert.setContentText("Veuillez sélectionner une categorie à supprimer.");
+                                alert.setContentText("Veuillez sélectionner une catégorie à supprimer.");
                                 alert.showAndWait();
+                                System.out.println("Aucune catégorie sélectionnée");
                         }
+
+                        System.out.println("Fin de la méthode delete");
+
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
         }
+
+
 
         public void Retour()
         {

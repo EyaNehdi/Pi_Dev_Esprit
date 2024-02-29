@@ -63,17 +63,30 @@ public class CategorieService implements IService<Categorie> {
              ResultSet rs = st.executeQuery(req)) {
             while (rs.next()) {
                 Categorie c= new Categorie();
-                //c.setId_categorie(rs.getInt("id_categorie"));
-                c.setNumSerie(rs.getInt("numSerie"));
-                c.setDescription(rs.getString("description"));
+                try {
+                    // Vérification des valeurs récupérées depuis la base de données
+                    System.out.println("Numéro de série récupéré : " + rs.getInt("numSerie"));
+                    System.out.println("Description récupérée : " + rs.getString("description"));
 
+                    // Assignation des valeurs aux propriétés de l'objet Categorie
+                    c.setNumSerie(rs.getInt("numSerie"));
+                    c.setDescription(rs.getString("description"));
+                } catch (SQLException ex) {
+                    System.out.println("Erreur lors de la récupération des données : " + ex.getMessage());
+                }
+
+                // Ajout de l'objet Categorie à la liste
                 categorieList.add(c);
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            // Gestion des erreurs SQL lors de l'exécution de la requête
+            System.out.println("Erreur SQL : " + e.getMessage());
         }
+
+        // Retour de la liste des catégories récupérées
         return categorieList;
     }
+
 
     @Override
     public Categorie readById(int id_categorie) {
@@ -111,4 +124,23 @@ public class CategorieService implements IService<Categorie> {
             System.out.println(ex.getMessage());
         }
         return u;
-    }}
+    }
+    public boolean exists(int numSerie) throws SQLException {
+        String query = "SELECT COUNT(*) FROM categorie WHERE numSerie = ?";
+        //try (Connection connection = DBUtil.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query); {
+
+            preparedStatement.setInt(1, numSerie);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt(1);
+                    return count > 0;
+                }
+            }
+        }
+        return false;
+    }
+
+
+}

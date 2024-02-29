@@ -17,7 +17,7 @@
             <children>
                 <VBox layoutX="2.0" layoutY="274.0" prefHeight="377.0" prefWidth="262.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="274.0">
                     <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" text="Ben Affleck" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -31,7 +31,7 @@
                             <padding>
                                 <Insets left="40.0" />
                             </padding></Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -43,7 +43,7 @@
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Ajouter Catégorie" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -55,7 +55,7 @@
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -71,7 +71,7 @@
                 </VBox>
                 <Pane layoutX="1.0" layoutY="81.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;">
                     <children>
-                        <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                        <Label layoutX="25.0" layoutY="17.0" text="Gestion catégorie" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -102,7 +102,13 @@
             <TextField fx:id="numSerief" layoutX="441.0" layoutY="85.0" />
             <TextField fx:id="descriptionf" layoutX="451.0" layoutY="270.0" />
             <Button fx:id="btnAjouter" layoutX="515.0" layoutY="373.0" mnemonicParsing="false" onAction="#ajouterCategorie" text="Ajouter" />
+            <Label layoutX="501.0" layoutY="6.0" text="Ajouter Categorie" />
             </children>
         </Pane>
+      <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="853.0" layoutY="36.0">
+         <image>
+            <Image url="@../../../../../Downloads/420547947_1153507129404551_6366238029742833789_n.jpg" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

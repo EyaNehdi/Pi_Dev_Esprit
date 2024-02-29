@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.afficherCategorie">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.afficherCategorie">
     <children>
-        <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
                     <children>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" text="Ben Affleck" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -32,7 +32,7 @@
                             <padding>
                                 <Insets left="40.0" />
                             </padding></Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -44,7 +44,7 @@
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Afficher Categorie" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -56,7 +56,7 @@
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -70,9 +70,9 @@
                         </Button>
                     </children>
                 </VBox>
-                <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: orange; -fx-background-radius: 5;">
+                <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;">
                     <children>
-                        <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                        <Label layoutX="25.0" layoutY="17.0" text="Gestion Categorie" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="18.0" />
                             </font>
@@ -82,17 +82,22 @@
             </children></AnchorPane>
         <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <Pane layoutX="-25.0" layoutY="-214.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
                 <TableView fx:id="tv_categorie" layoutX="8.0" layoutY="204.0" onMouseClicked="#mouseClicked" prefHeight="309.0" prefWidth="801.0">
                     <columns>
                         <TableColumn fx:id="numSerie" prefWidth="160.0" text="numSerie" />
                         <TableColumn fx:id="description" prefWidth="640.0" text="description " />
                     </columns>
                 </TableView>
-                <Label layoutX="399.0" layoutY="161.0" prefHeight="17.0" prefWidth="376.0" text="Afficher Categorie" textFill="WHITE" />
+                <Label layoutX="399.0" layoutY="161.0" prefHeight="17.0" prefWidth="376.0" text="Afficher Categorie" />
                 <Button fx:id="btnSupprimer" layoutX="390.0" layoutY="583.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="95.0" text="Supprimer" />
                 <Button fx:id="btnModifier" layoutX="514.0" layoutY="583.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="73.0" text="Modifier" />
                 <Button fx:id="btnRetour" layoutX="609.0" layoutY="583.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Retour" />
+            <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="609.0" layoutY="29.0">
+               <image>
+                  <Image url="@../../../../../Downloads/420547947_1153507129404551_6366238029742833789_n.jpg" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
     </children>

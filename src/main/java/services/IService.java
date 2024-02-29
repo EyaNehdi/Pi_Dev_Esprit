@@ -10,6 +10,7 @@ public interface IService <T>{
     void update(T t);
     List<T> readAll() throws SQLException;
     T readById(int id);
+
 }
 
 

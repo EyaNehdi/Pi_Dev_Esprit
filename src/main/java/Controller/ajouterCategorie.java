@@ -1,4 +1,5 @@
 package Controller;
+
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -15,9 +16,8 @@ import services.EquipementService;
 
 public class ajouterCategorie {
 
-
     @FXML
-    private Button btnAjouter ;
+    private Button btnAjouter;
 
     @FXML
     private TextField descriptionf;
@@ -27,30 +27,54 @@ public class ajouterCategorie {
 
     @FXML
     private void ajouterCategorie() {
-        Categorie categorie = new Categorie();
-        categorie.setNumSerie(Integer.parseInt(numSerief.getText()));
-        categorie.setDescription(descriptionf.getText());
+        String description = descriptionf.getText();
+        String numSerieText = numSerief.getText();
 
-        CategorieService serviceCategorie= new CategorieService();
+        if (description.isEmpty() || numSerieText.isEmpty()) {
+            afficherAlerte("Champs vides", "Veuillez remplir tous les champs.");
+            return;
+        }
+
+        int numSerie;
+        try {
+            numSerie = Integer.parseInt(numSerieText);
+        } catch (NumberFormatException e) {
+            afficherAlerte("Format incorrect", "Le numéro de série doit être un nombre entier.");
+            return;
+        }
+
+        CategorieService serviceCategorie = new CategorieService();
 
         try {
+            // Vérification d'unicité du numéro de série
+            if (serviceCategorie.exists(numSerie)) {
+                afficherAlerte("Numéro de série existant", "Ce numéro de série existe déjà.");
+                return;
+            }
+
+            Categorie categorie = new Categorie();
+            categorie.setNumSerie(numSerie);
+            categorie.setDescription(description);
+
             serviceCategorie.add(categorie);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Succes");
-            alert.setContentText("Ajout de categorie avec succes");
-            alert.showAndWait();
-            // Changer de scène après l'ajout
-            // Stage stage = (Stage) btnAjouter.getScene().getWindow();
-            // SceneChanger.changerScene("/AfficherCours.fxml", stage);
+            afficherAlerte("Succès", "Ajout de catégorie avec succès");
+
+            // Effacer les champs après l'ajout réussi
+            descriptionf.clear();
+            numSerief.clear();
 
         } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Echec");
-            alert.setContentText("Echec d'ajout de categorie");
-            alert.showAndWait();
+            afficherAlerte("Échec", "Échec d'ajout de catégorie");
             e.printStackTrace();
         }
     }
 
+    // Méthode pour afficher une alerte
+    private void afficherAlerte(String titre, String contenu) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titre);
+        alert.setContentText(contenu);
+        alert.showAndWait();
+    }
 }

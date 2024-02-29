@@ -17,11 +17,11 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListCategories.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ajouterEquipement.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("ajouter Categorie ");
+            primaryStage.setTitle("test ");
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

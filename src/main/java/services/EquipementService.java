@@ -116,5 +116,22 @@ public class EquipementService implements IService<Equipement> {
         }
         return u;
     }
+    public boolean existeNom(String nom) throws SQLException {
+        String query = "SELECT COUNT(*) FROM equipement WHERE nom = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query))
+            {
+
+            preparedStatement.setString(1, nom);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt(1);
+                    return count > 0;
+                }
+            }
+        }
+        return false;
+    }
+
 
 }
