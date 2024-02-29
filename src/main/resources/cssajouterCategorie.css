@@ -1,0 +1,39 @@
+/* Couleur de fond pour l'interface */
+.root {
+    -fx-background-color: #ffa500; /* Orange */
+}
+
+/* Style pour les libellés */
+.label {
+    -fx-font-size: 18px; /* Taille de la police */
+    -fx-text-fill: #ffffff; /* Couleur du texte blanc */
+}
+
+/* Style pour les champs de texte */
+.text-field {
+    -fx-font-size: 16px; /* Taille de la police */
+    -fx-background-color: #ffffff; /* Couleur de fond blanc */
+    -fx-border-color: #ffa500; /* Orange */
+    -fx-border-width: 1.5px; /* Largeur de la bordure */
+    -fx-border-radius: 3px; /* Rayon de la bordure arrondie */
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-font-size: 16px; /* Taille de la police */
+    -fx-background-color: #ffffff; /* Couleur de fond blanc */
+    -fx-text-fill: #ffa500; /* Couleur du texte orange */
+    -fx-border-color: #ffa500; /* Orange */
+    -fx-border-width: 1.5px; /* Largeur de la bordure */
+    -fx-border-radius: 3px; /* Rayon de la bordure arrondie */
+}
+
+/* Style pour les boutons lorsqu'ils sont survolés par la souris */
+.button:hover {
+    -fx-background-color: #ffcc80; /* Orange plus clair */
+}
+
+/* Style pour les boutons lorsqu'ils sont pressés */
+.button:pressed {
+    -fx-background-color: #ff7f00; /* Orange foncé */
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="510.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.afficherCategorie">
+   <children>
+      <TableView fx:id="tv_categorie" layoutX="43.0" layoutY="103.0" onMouseClicked="#mouseClicked" prefHeight="309.0" prefWidth="904.0">
+        <columns>
+          <TableColumn fx:id="id_categorie" prefWidth="204.0" text="id_categorie" />
+          <TableColumn fx:id="numSerie" prefWidth="458.0" text="numSerie" />
+            <TableColumn fx:id="description" prefWidth="241.0" text="description " />
+        </columns>
+      </TableView>
+      <Label layoutX="399.0" layoutY="48.0" prefHeight="17.0" prefWidth="376.0" text="Afficher Categorie" />
+      <Button fx:id="btnSupprimer" layoutX="382.0" layoutY="436.0" mnemonicParsing="false" onAction="#delete" prefHeight="25.0" prefWidth="95.0" text="Supprimer" />
+      <Button fx:id="btnModifier" layoutX="506.0" layoutY="436.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="25.0" prefWidth="73.0" text="Modifier" />
+      <Button fx:id="btnRetour" layoutX="601.0" layoutY="436.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Retour" />
+   </children>
+</AnchorPane>
