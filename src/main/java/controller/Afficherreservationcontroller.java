@@ -2,7 +2,9 @@ package controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import entities.event;
@@ -13,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import services.servicesreservation;
@@ -71,13 +74,18 @@ public class Afficherreservationcontroller {
     @FXML
     void initialize() {
         try {
-            ObservableList<reservation> reservations= FXCollections.observableList(servicesreservation.afficher());
-            tv_reservation.setItems(reservations);
-            col_Nomeleve.setCellValueFactory(new PropertyValueFactory<>("nom_eleve"));
-            col_nomevent.setCellValueFactory(new PropertyValueFactory<>("nom_evenement"));
+            // Récupérer la liste des événements depuis le service
+            ObservableList<reservation> reservations = FXCollections.observableList(servicesreservation.afficher());
 
+            // Définir les cellules de chaque colonne avec les données appropriées
+            col_Nomeleve.setCellValueFactory(new PropertyValueFactory<>("ID_USER"));
+            col_nomevent.setCellValueFactory(new PropertyValueFactory<>("ID_EVENT"));
+
+            // Ajouter les événements à la TableView
+            tv_reservation.setItems(reservations);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            // Gérer les exceptions
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'affichage des réservations : " + e.getMessage());
         }
 
     }

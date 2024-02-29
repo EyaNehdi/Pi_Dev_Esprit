@@ -94,5 +94,10 @@
             <Image url="@Images/Capture_d_écran_2024-02-28_153711-removebg-preview.png" />
          </image>
       </ImageView>
+      <Button layoutX="505.0" layoutY="497.0" mnemonicParsing="false" onAction="#btn_reservation" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 20;" text="Réservation">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

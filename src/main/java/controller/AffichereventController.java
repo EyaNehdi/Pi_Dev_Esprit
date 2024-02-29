@@ -20,6 +20,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import services.servicesevent;
 import entities.event;
+import java.time.format.DateTimeFormatter;
+
 
 
 
@@ -32,6 +34,9 @@ public class AffichereventController {
 
     @FXML
     private Button btn_supprimer;
+    @FXML
+    private Button btn_reservation;
+
 
     @FXML
     private TableColumn<event, Date> col_date;
@@ -53,6 +58,16 @@ public class AffichereventController {
     void Retour(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/gerer_evenement.fxml"));
+            tv_event.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    @FXML
+    void btn_reservation(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Ajouterreservation.fxml"));
             tv_event.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -110,19 +125,52 @@ public class AffichereventController {
 
     }
 
-    @FXML
-    void initialize() {
-        try {
-            ObservableList<event> events= FXCollections.observableList(servicesevent.afficher());
-            tv_event.setItems(events);
-            col_nom.setCellValueFactory(new PropertyValueFactory<>("nom_evenement"));
-            col_date.setCellValueFactory(new PropertyValueFactory<>("Date_debut"));
-            col_datefin.setCellValueFactory(new PropertyValueFactory<>("Date_fin"));
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
+   @FXML
+   void initialize() {
+       try {
+           // Récupérer la liste des événements depuis le service
+           ObservableList<event> events = FXCollections.observableList(servicesevent.afficher());
 
-    }
+           // Définir les cellules de chaque colonne avec les données appropriées
+           col_nom.setCellValueFactory(new PropertyValueFactory<>("nom_evenement"));
+           col_date.setCellValueFactory(new PropertyValueFactory<>("Date_debut"));
+           col_datefin.setCellValueFactory(new PropertyValueFactory<>("Date_fin"));
+
+           // Convertir les dates en format lisible dans les cellules
+           DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+           col_date.setCellFactory(column -> new TableCell<event, Date>() {
+               @Override
+               protected void updateItem(Date date, boolean empty) {
+                   super.updateItem(date, empty);
+                   if (empty || date == null) {
+                       setText(null);
+                   } else {
+                       setText(dateFormatter.format(date.toLocalDate()));
+                   }
+               }
+           });
+
+           col_datefin.setCellFactory(column -> new TableCell<event, Date>() {
+               @Override
+               protected void updateItem(Date date, boolean empty) {
+                   super.updateItem(date, empty);
+                   if (empty || date == null) {
+                       setText(null);
+                   } else {
+                       setText(dateFormatter.format(date.toLocalDate()));
+                   }
+               }
+           });
+
+           // Ajouter les événements à la TableView
+           tv_event.setItems(events);
+       } catch (SQLException e) {
+           // Gérer les exceptions
+           showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'affichage des événements : " + e.getMessage());
+       }
+   }
+
 
     @FXML
     void Modifier_event(ActionEvent event) {

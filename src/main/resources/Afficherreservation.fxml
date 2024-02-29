@@ -1,31 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F5B041;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficherreservationcontroller">
+<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficherreservationcontroller">
    <children>
-      <TableView fx:id="tv_reservation" layoutX="77.0" layoutY="47.0" prefHeight="235.0" prefWidth="222.0">
+      <TableView fx:id="tv_reservation" layoutX="251.0" layoutY="79.0" prefHeight="202.0" prefWidth="418.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 30;">
         <columns>
-          <TableColumn fx:id="col_Nomeleve" prefWidth="108.0" text="Nom_eleve" />
-          <TableColumn fx:id="col_nomevent" prefWidth="112.79998779296875" text="Nom_evenement" />
+          <TableColumn fx:id="col_Nomeleve" prefWidth="199.20001220703125" text="ID_USER" />
+          <TableColumn fx:id="col_nomevent" prefWidth="217.60001220703123" text="ID_EVENT" />
         </columns>
       </TableView>
-      <Button layoutX="385.0" layoutY="187.0" mnemonicParsing="false" onAction="#Supprimer_reservation" prefHeight="39.0" prefWidth="86.0" style="-fx-background-radius: 10;" text="Supprimer">
+      <Button layoutX="334.0" layoutY="328.0" mnemonicParsing="false" onAction="#Supprimer_reservation" prefHeight="39.0" prefWidth="101.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Supprimer">
          <font>
-            <Font name="Britannic Bold" size="14.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font></Button>
-      <Button layoutX="385.0" layoutY="124.0" mnemonicParsing="false" onAction="#Modifier_reservation" prefHeight="39.0" prefWidth="86.0" style="-fx-background-radius: 10;" text="Modifier">
+      <Button layoutX="517.0" layoutY="328.0" mnemonicParsing="false" onAction="#Modifier_reservation" prefHeight="39.0" prefWidth="94.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Modifier">
          <font>
-            <Font size="14.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font></Button>
-      <Button layoutX="60.0" layoutY="333.0" mnemonicParsing="false" onAction="#Retour_reservation" style="-fx-background-radius: 10;" text="Retour">
+      <Button layoutX="300.0" layoutY="491.0" mnemonicParsing="false" onAction="#Retour_reservation" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Retour">
          <font>
-            <Font size="14.0" />
+            <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Button>
+      <Pane layoutX="-8.0" prefHeight="563.0" prefWidth="231.0" style="-fx-background-color: orange;">
+         <children>
+            <VBox layoutX="13.0" layoutY="244.0" prefHeight="280.0" prefWidth="216.0" style="-fx-background-color: orange;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Voir_Cours" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Cours" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Evenements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Formations" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Equipements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Abonnements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutX="16.0" layoutY="164.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3498DB;">
+               <children>
+                  <Label fx:id="lb_event" layoutX="40.0" layoutY="4.0" prefHeight="42.0" prefWidth="140.0" text="Evénements" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <ImageView fitHeight="130.0" fitWidth="174.0" layoutX="29.0">
+               <image>
+                  <Image url="@Images/evenement-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ImageView fitHeight="50.0" fitWidth="68.0" layoutX="242.0" layoutY="456.0">
+         <image>
+            <Image url="@Images/Capture_d_écran_2024-02-28_153711-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="178.0" fitWidth="200.0" layoutX="695.0">
+         <image>
+            <Image url="@Images/Capture_d_écran_2024-02-29_221258-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
