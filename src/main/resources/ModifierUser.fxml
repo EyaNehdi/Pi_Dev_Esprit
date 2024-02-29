@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifierUser">
+    <AnchorPane cache="true" cacheHint="ROTATE" prefHeight="458.0" prefWidth="697.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+        <VBox alignment="CENTER" spacing="10">
+            <!-- Logo and Title -->
+            <StackPane />
+
+            <!-- Forgot Password and Create Account links -->
+            <HBox spacing="10" />
+        </VBox>
+        <AnchorPane cache="true" layoutX="140.0" layoutY="14.0" prefHeight="433.0" prefWidth="413.0" style="-fx-background-color: #F0F8FF; -fx-background-radius: 15;">
+            <children>
+                <ImageView fitHeight="318.0" fitWidth="316.0" layoutX="26.0" layoutY="-130.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Assets/logo.png" />
+                    </image>
+                </ImageView>
+                <!-- Email field -->
+                <TextField fx:id="nom" alignment="CENTER" layoutX="62.0" layoutY="111.0" prefHeight="26.0" prefWidth="121.0" promptText="Name" />
+
+                <!-- Sign In Text -->
+                <Text fill="#c4591f" layoutX="148.0" layoutY="64.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="SIGN UP" textAlignment="CENTER" wrappingWidth="82.39999999999986" />
+                <Label alignment="CENTER" layoutX="58.0" layoutY="93.0" prefHeight="18.0" prefWidth="50.0" text="Nom" textAlignment="CENTER" />
+                <Label alignment="CENTER" layoutX="189.0" layoutY="93.0" prefHeight="18.0" prefWidth="82.0" text="Prénom" textAlignment="JUSTIFY" />
+                <Label layoutX="67.0" layoutY="69.0" prefHeight="18.0" prefWidth="257.0" text="Enter your credentials to create an account" textAlignment="CENTER" textFill="#a49f9f" />
+                <Button fx:id="cancel" layoutX="219.0" layoutY="393.0" mnemonicParsing="false" onAction="#cancelonaction" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: derive(#FFA500, 20%);" text="EXIT" textFill="#fcf6f6" textOverrun="CLIP">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.4526315927505493" green="0.38725146651268005" blue="0.38725146651268005" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+                <TextField fx:id="prenom" alignment="CENTER" layoutX="207.0" layoutY="111.0" prefHeight="26.0" prefWidth="122.0" promptText="Prénom" />
+                <Label alignment="CENTER" layoutX="62.0" layoutY="137.0" prefHeight="18.0" prefWidth="50.0" text="E-mail" textAlignment="CENTER" />
+                <TextField fx:id="emaill" alignment="CENTER" layoutX="61.0" layoutY="155.0" prefHeight="26.0" prefWidth="270.0" promptText="E-mail" />
+                <Label alignment="CENTER" layoutX="62.0" layoutY="201.0" prefHeight="18.0" prefWidth="82.0" text="Mot de passe" textAlignment="CENTER" />
+                <PasswordField fx:id="mdpp" alignment="CENTER" layoutX="61.0" layoutY="222.0" prefHeight="26.0" prefWidth="270.0" promptText="Mot de passe" />
+                <Label alignment="CENTER" layoutX="58.0" layoutY="265.0" prefHeight="18.0" prefWidth="149.0" text="Confirmez mot de passe" textAlignment="CENTER" />
+                <PasswordField fx:id="mdp1" alignment="CENTER" layoutX="61.0" layoutY="284.0" prefHeight="26.0" prefWidth="270.0" promptText="Confirmez mot de passe" />
+                <Label alignment="CENTER" layoutX="61.0" layoutY="326.0" prefHeight="18.0" prefWidth="122.0" text="Numéro de téléphone" textAlignment="CENTER" />
+                <TextField fx:id="tel" alignment="CENTER" layoutX="60.0" layoutY="345.0" prefHeight="26.0" prefWidth="270.0" promptText="Numéro de téléphone " />
+                <Button fx:id="sign" layoutX="71.0" layoutY="393.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: derive(#FFA500, 20%);" text="SIGN UP" textFill="#fcf6f6" textOverrun="CLIP">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.4526315927505493" green="0.38725146651268005" blue="0.38725146651268005" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Button>
+                <Label fx:id="fill" alignment="CENTER" layoutX="96.0" layoutY="371.0" prefHeight="18.0" prefWidth="174.0" textAlignment="CENTER" textFill="#bc6b14" />
+                <Label fx:id="em" alignment="CENTER" layoutX="101.0" layoutY="181.0" prefHeight="18.0" prefWidth="184.0" textAlignment="CENTER" textFill="#a94b19" />
+                <Label fx:id="em1" alignment="CENTER" layoutX="97.0" layoutY="310.0" prefHeight="18.0" prefWidth="184.0" textAlignment="CENTER" textFill="#a94b19" />
+            </children>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <effect>
+                <DropShadow />
+            </effect>
+        </AnchorPane>
+
+    </AnchorPane>
+
+</AnchorPane>
