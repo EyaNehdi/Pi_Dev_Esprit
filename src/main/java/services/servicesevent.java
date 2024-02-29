@@ -6,12 +6,18 @@ import Utils.MyDatabase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+
 
 public class servicesevent implements Iservice<event> {
+
     Connection connection;
 
     public servicesevent() {
         connection = MyDatabase.getInstance().getConnection();
+
     }
 
     @Override
@@ -32,6 +38,9 @@ public class servicesevent implements Iservice<event> {
             System.out.println(e.getMessage());
         }
     }
+
+
+
 
     @Override
     public void modifier(event event) throws SQLException {

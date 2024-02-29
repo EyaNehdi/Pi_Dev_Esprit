@@ -1,28 +1,32 @@
 package controller;
 
-import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import services.servicesevent;
 import entities.event;
 
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
 
 public class gerer_evenementController {
-
-    private servicesevent servicesevent = new servicesevent();
+    private services.servicesevent servicesevent = new servicesevent();
 
     @FXML
-    private DatePicker tf_date;
+    private Label lb_event;
+
+    @FXML
+    private DatePicker tf_datedebut;
+
+    @FXML
+    private DatePicker tf_datefin;
 
     @FXML
     private TextField tf_nom;
@@ -30,71 +34,92 @@ public class gerer_evenementController {
     @FXML
     void Afficher_event(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/gerer_evenement.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Afficherevent.fxml"));
+            tf_nom.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    @FXML
+    void Ajouter_event(ActionEvent event) {
+        String nom = tf_nom.getText();
+        LocalDate dateDebut = tf_datedebut.getValue();
+        LocalDate dateFin = tf_datefin.getValue();
+        LocalDate dateActuelle = LocalDate.now(); // Date actuelle
+
+        if (nom.isEmpty() || dateDebut == null || dateFin == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Champs incomplets");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (dateDebut.isBefore(dateActuelle)) {
+            // Date de début avant la date actuelle
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Date invalide");
+            alert.setHeaderText(null);
+            alert.setContentText("La date de début doit être postérieure à la date actuelle.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (dateFin.isBefore(dateDebut)) {
+            // Date de fin avant la date de début
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Date invalide");
+            alert.setHeaderText(null);
+            alert.setContentText("La date de fin doit être postérieure à la date de début.");
+            alert.showAndWait();
+            return;
+        }
+
+        try {
+            servicesevent.ajouter(new event(nom, Date.valueOf(dateDebut), Date.valueOf(dateFin)));
+            tf_nom.clear();
+            tf_datedebut.setValue(null);
+            tf_datefin.setValue(null);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void Retour_pageaccueil(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Interface.fxml"));
             tf_nom.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
+    @FXML
+    void Voir_Abonnements(ActionEvent event) {
+        // Code pour visualiser les abonnements
+    }
 
     @FXML
-    void Ajouter_event(ActionEvent event) {
-        // Vérifier si les champs sont valides avant d'ajouter la formation
-        if (validateFields()) {
-            try {
-                String nom = tf_nom.getText();
-
-                // Vérifier si le nom contient uniquement des lettres
-                if (!isAlpha(nom)) {
-                    showAlert(Alert.AlertType.WARNING, "Nom invalide", "Le nom de l'event doit contenir uniquement des lettres.");
-                    return;
-                }
-
-                LocalDate date = tf_date.getValue();
-
-                // Vérifier si la date de la formation est antérieure à la date actuelle
-                if (date.isBefore(LocalDate.now())) {
-                    showAlert(Alert.AlertType.WARNING, "Date invalide", "La date d'event  ne peut pas être antérieure à la date actuelle.");
-                    return;
-                }
-
-                servicesevent.ajouter(new event(nom, date));
-                showAlert(Alert.AlertType.INFORMATION, "Success", "event ajoutée");
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-                showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors d'ajoure l'event : " + e.getMessage());
-            }
-        }
+    void Voir_Cours(ActionEvent event) {
+        // Code pour visualiser les cours
     }
 
-    // Méthode utilitaire pour afficher une boîte de dialogue
-    private void showAlert(Alert.AlertType alertType, String title, String content) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
-    // Méthode pour vérifier si une chaîne contient uniquement des lettres
-    private boolean isAlpha(String str) {
-        return str.matches("[a-zA-Z]+");
+    @FXML
+    void Voir_Equipements(ActionEvent event) {
+        // Code pour visualiser les équipements
     }
 
-    // Méthode pour valider les champs avant l'ajout
-    private boolean validateFields() {
-        String nom = tf_nom.getText();
-        LocalDate date = tf_date.getValue();
-
-        if (nom.isEmpty() || date == null) {
-            showAlert(Alert.AlertType.WARNING, "Champs obligatoires", "Veuillez remplir tous les champs.");
-            return false;
-        }
-
-        // Ajoutez d'autres contrôles de validation si nécessaire (par exemple, validation du format de la date)
-
-        return true;
+    @FXML
+    void Voir_Evenements(ActionEvent event) {
+        // Code pour visualiser les événements
     }
 
-
-
+    @FXML
+    void Voir_Formations(ActionEvent event) {
+        // Code pour visualiser les formations
     }
+}
