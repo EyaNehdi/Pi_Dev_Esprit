@@ -1,129 +1,152 @@
-/* styles.css */
-
-/* Fond orange pour le conteneur principal */
-.root {
-    -fx-background-color: #FFA500; /* Orange */
+.button1
+{
+    -fx-background-color : #393351;
+    -fx-background-radius :  30 0 0 30;
+}
+.button1:hover
+{
+    -fx-background-color : #524A7B ;
+    -fx-background-radius :  30 0 0 30;
+}
+.button1:pressed
+{
+    -fx-background-color : #2F2B43 ;
+    -fx-background-radius :  30 0 0 30;
 }
 
-/* Bouton avec fond bleu et texte blanc */
-.button-blue {
-    -fx-background-color: #3498db; /* Bleu */
+.button2
+{
+    -fx-background-color : #393351;
+    -fx-background-radius :  20;
+}
+.button2:hover
+{
+    -fx-background-color : #524A7B ;
+    -fx-background-radius :  20;
+}
+.button2:pressed
+{
+    -fx-background-color : #2F2B43 ;
+    -fx-background-radius :  20;
+}
+
+.button3
+{
+    -fx-background-color : #141124;
+    -fx-background-radius :  0 0 0 0;
+}
+.button3:hover
+{
+    -fx-background-color : #524A7B ;
+}
+.button3:pressed
+{
+    -fx-background-color : #2F2B43 ;
+}
+
+.button4
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:hover
+{
+    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+
+
+.combo-box
+{
+    -fx-background-color : #141124;
+    -fx-border-color:  #515658;
+    -fx-border-radius: 30;
+}
+.combo-box:hover
+{
+    -fx-background-color : #141124;
+    -fx-border-color:  #FFFF;
+    -fx-border-radius: 30;
+}
+.combo-box:pressed
+{
+    -fx-background-color : #141124;
+    -fx-border-color:  #FFFF;
+    -fx-border-radius: 30;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:   #2D75E8;
+}
+.table-view .column-header .label{
+
     -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+    -fx-text-fill: #000000;
 }
 
-/* Zone de texte avec bordure bleue */
-.text-field-blue {
-    -fx-border-color: #3498db; /* Bleu */
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+}
+.table-row-cell:selected .text {
+    -fx-fill : white ;
+
+}
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
 }
 
-/* TableView avec fond bleu clair pour les lignes */
-.table-view {
-    -fx-control-inner-background: #ecf0f1; /* Bleu clair */
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(  #2D75E8,80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
 }
 
-/* Cellule de TableView avec fond orange pour le survol de la souris */
-.table-row-cell:hover {
-    -fx-background-color: #FFA500; /* Orange */
-}
-/* styles.css */
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
 
-/* Style de base pour tous les TextFields */
-.text-field {
-    -fx-background-color: #ffffff; /* Couleur de fond */
-    -fx-border-color: #3498db; /* Couleur de la bordure */
-    -fx-border-width: 1px; /* Largeur de la bordure */
-    -fx-border-radius: 5px; /* Rayon des coins de la bordure */
-    -fx-padding: 5px; /* Espacement interne */
 }
 
-/* Style pour les TextFields en état de focus */
-.text-field:focused {
-    -fx-border-color: #e67e22; /* Couleur de la bordure lorsqu'en focus */
-    -fx-background-color: #ecf0f1; /* Couleur de fond lorsqu'en focus */
+/* chart properties */
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
 }
 
-/* Style pour les TextFields désactivés */
-.text-field:disabled {
-    -fx-opacity: 0.7; /* Opacité pour indiquer que le champ est désactivé */
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
 }
-
-/* Style pour le texte à l'intérieur des TextFields */
-.text-field .text {
-    -fx-fill: #2c3e50; /* Couleur du texte */
+.linear-grad
+{
+    -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
 }
-
-/* Style pour l'effet hover */
-.text-field:hover {
-    -fx-background-color: #d5e5f7; /* Couleur de fond au survol */
-}
-/* styles.css */
-
-/* Style de base pour tous les TextAreas */
-.text-area {
-    -fx-background-color: #ffffff; /* Couleur de fond */
-    -fx-border-color: #3498db; /* Couleur de la bordure */
-    -fx-border-width: 1px; /* Largeur de la bordure */
-    -fx-border-radius: 5px; /* Rayon des coins de la bordure */
-    -fx-padding: 5px; /* Espacement interne */
-}
-
-/* Style pour les TextAreas en état de focus */
-.text-area:focused {
-    -fx-border-color: #e67e22; /* Couleur de la bordure lorsqu'en focus */
-    -fx-background-color: #ecf0f1; /* Couleur de fond lorsqu'en focus */
-}
-
-/* Style pour les TextAreas désactivés */
-.text-area:disabled {
-    -fx-opacity: 0.7; /* Opacité pour indiquer que le champ est désactivé */
-}
-
-/* Style pour le texte à l'intérieur des TextAreas */
-.text-area .text {
-    -fx-fill: #2c3e50; /* Couleur du texte */
-}
-
-/* Style pour l'effet hover */
-.text-area:hover {
-    -fx-background-color: #d5e5f7; /* Couleur de fond au survol */
-}
-/* styles.css */
-
-/* Style de base pour tous les boutons */
-.button {
-    -fx-background-color: #3498db; /* Couleur de fond */
-    -fx-text-fill: #ffffff; /* Couleur du texte */
-    -fx-border-color: #3498db; /* Couleur de la bordure */
-    -fx-border-width: 1px; /* Largeur de la bordure */
-    -fx-border-radius: 5px; /* Rayon des coins de la bordure */
-    -fx-padding: 8px 16px; /* Espacement interne (haut-bas gauche-droite) */
-}
-
-/* Style pour les boutons en état de focus */
-.button:focused {
-    -fx-border-color: #e67e22; /* Couleur de la bordure lorsqu'en focus */
-}
-
-/* Style pour les boutons désactivés */
-.button:disabled {
-    -fx-opacity: 0.7; /* Opacité pour indiquer que le bouton est désactivé */
-}
-
-/* Style pour l'effet hover */
-.button:hover {
-    -fx-background-color: #2980b9; /* Couleur de fond au survol */
-}
-
-/* Style pour les boutons en état "default" */
-.button:default {
-    -fx-background-color: #e67e22; /* Couleur de fond pour le bouton par défaut */
-}
-
-/* Style pour les boutons en état "pressed" */
-.button:pressed {
-    -fx-background-color: #1f618d; /* Couleur de fond lorsqu'appuyé */
-    -fx-border-color: #1f618d; /* Couleur de la bordure lorsqu'appuyé */
-}
-
-
-

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import entities.Cours;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import services.CoursService;
 import controllers.AjouterCours;
@@ -40,15 +42,19 @@ CoursService serviceCours = new CoursService();
     @FXML
     private Button btnSupprimer;
     private FilteredList<Cours> filteredCours;
+
     @FXML
     void initialize() {
         try {
             btnModifier.setDisable(true);
             btnSupprimer.setDisable(true);
-            ObservableList<Cours> coursList = FXCollections.observableList(serviceCours.readAll());
-            tv_cours.setItems(coursList);
+
             titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
             contenu.setCellValueFactory(new PropertyValueFactory<>("contenu"));
+
+            ObservableList<Cours> coursList = FXCollections.observableList(serviceCours.readAll());
+
+            tv_cours.setItems(coursList);
 
             // Créer un FilteredList pour filtrer les données affichées
             filteredCours = new FilteredList<>(coursList, p -> true);
@@ -73,6 +79,7 @@ CoursService serviceCours = new CoursService();
             throw new RuntimeException(e);
         }
     }
+
     public void Retour()
     {
         Stage stage = (Stage) btnRetour.getScene().getWindow();
@@ -87,18 +94,37 @@ CoursService serviceCours = new CoursService();
         btnModifier.setDisable(false);
         btnSupprimer.setDisable(false);
     }
-    @FXML
-    public void Modifier() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/CoursCard.fxml"));
-        Parent root = loader.load();
-        CoursUpdate controller = loader.getController();
-        controller.initData(Cours.getId_cours());
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+   @FXML
+   public void Modifier() throws IOException {
+       Cours selectedCours = tv_cours.getSelectionModel().getSelectedItem();
+       Stage currentStage = (Stage) btnModifier.getScene().getWindow();
+       currentStage.close();
+       if (selectedCours != null) {
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("/CoursCard.fxml"));
+           Parent root = loader.load();
+           CoursUpdate controller = loader.getController();
+           controller.initData(selectedCours.getId_cours());
+           Stage stage = new Stage();
+           stage.setScene(new Scene(root));
+           stage.showAndWait();
+           // Après avoir fermé l'interface de modification, rafraîchissez la TableView
+           refreshTableView();
 
+       } else {
+           // Afficher une alerte si aucun cours n'est sélectionné
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("Aucune sélection");
+           alert.setHeaderText(null);
+           alert.setContentText("Veuillez sélectionner un cours à modifier.");
+           alert.showAndWait();
+       }
+   }
 
+    private void refreshTableView() {
+        tv_cours.getColumns().get(0).setVisible(false);
+        tv_cours.getColumns().get(0).setVisible(true);
     }
+
     @FXML
     public void delete(ActionEvent event) {
         try {

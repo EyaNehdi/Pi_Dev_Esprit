@@ -24,10 +24,10 @@ public class AjouterCours {
     private Button btnAnnuler;
 
     @FXML
-    private TextArea fieldContenu;
+    private TextArea contenuf;
 
     @FXML
-    private TextField fieldTitre;
+    private TextField titref;
 
     @FXML
     public void Lister() {
@@ -38,19 +38,19 @@ public class AjouterCours {
     @FXML
     private void AjouterCours() {
         // Validation de saisie
-        if (fieldTitre.getText().isEmpty() || fieldContenu.getText().isEmpty()) {
+        if (titref.getText().isEmpty() || contenuf.getText().isEmpty()) {
             afficherAlerte("Veuillez remplir tous les champs.");
             return;
         }
 
         // Vérification d'unicité
-        if (coursExisteDeja(fieldTitre.getText())) {
+        if (coursExisteDeja(titref.getText())) {
             afficherAlerte("Un cours avec ce titre existe déjà.");
             return;
         }
 
         // Ajout du cours
-        Cours cours = new Cours(fieldTitre.getText(), fieldContenu.getText());
+        Cours cours = new Cours(titref.getText(), contenuf.getText());
         CoursService serviceCours = new CoursService();
 
         try {

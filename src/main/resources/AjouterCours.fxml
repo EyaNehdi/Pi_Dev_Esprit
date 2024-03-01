@@ -1,36 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="580.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controllers.AjouterCours" stylesheets="style.css">
-   <children>
-      <GridPane layoutX="96.0" layoutY="119.0" prefHeight="342.0" prefWidth="445.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="btnAjouter" mnemonicParsing="false" onAction="#AjouterCours" text="Ajouter" GridPane.rowIndex="2" />
-            <Button fx:id="btnAnnuler" mnemonicParsing="false" text="Annuler" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextArea fx:id="fieldContenu" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="fieldTitre" GridPane.columnIndex="1" />
-            <Label prefHeight="18.0" prefWidth="85.0" text="Titre" />
-            <Label prefHeight="18.0" prefWidth="91.0" text="Contenu" GridPane.rowIndex="1" />
-         </children>
-      </GridPane>
-      <Button fx:id="btnLister" layoutX="512.0" layoutY="529.0" mnemonicParsing="false" onAction="#Lister" text="Lister Cours" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterCours">
+    <children>
+        <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: #393351;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox layoutY="160.0" prefHeight="356.0" prefWidth="262.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="160.0">
+                    <children>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Ben Affleck" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/ben-affleck.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding></Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Jimmy Mason" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/ic_usr.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Alex Mainman" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/profile-adam-levine.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Rob Damien" textFill="WHITE">
+                            <graphic>
+                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../resources/profile-james-marsden.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <padding>
+                                <Insets left="40.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </VBox>
+                <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: orange; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+        <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <Pane layoutX="76.0" layoutY="106.0" />
+            <TextField fx:id="titref" layoutX="342.0" layoutY="242.0" prefHeight="27.0" prefWidth="183.0" />
+            <TextArea fx:id="contenuf" layoutX="334.0" layoutY="319.0" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="157.0" layoutY="242.0" text="Titre :" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="145.0" layoutY="319.0" text="Contenu :" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS" size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnAjouter" layoutX="342.0" layoutY="555.0" mnemonicParsing="false" onAction="#AjouterCours" text="Ajouter" />
+            <Button fx:id="btnLister" layoutX="480.0" layoutY="555.0" mnemonicParsing="false" onAction="#Lister" text="Lister" />
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>
