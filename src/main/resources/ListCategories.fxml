@@ -21,9 +21,7 @@
                         <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/ben-affleck.png" />
-                                    </image>
+
                                 </ImageView>
                             </graphic>
                             <VBox.margin>
@@ -32,36 +30,30 @@
                             <padding>
                                 <Insets left="40.0" />
                             </padding></Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/ic_usr.png" />
-                                    </image>
+
                                 </ImageView>
                             </graphic>
                             <padding>
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Afficher Categorie" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" text="Afficher Categorie" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/profile-adam-levine.png" />
-                                    </image>
+
                                 </ImageView>
                             </graphic>
                             <padding>
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../resources/profile-james-marsden.png" />
-                                    </image>
+
                                 </ImageView>
                             </graphic>
                             <padding>
@@ -85,8 +77,9 @@
                 <Pane layoutX="-25.0" layoutY="-214.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
                 <TableView fx:id="tv_categorie" layoutX="8.0" layoutY="204.0" onMouseClicked="#mouseClicked" prefHeight="309.0" prefWidth="801.0">
                     <columns>
+                  <TableColumn fx:id="numSerie2" editable="false" prefWidth="160.0" sortable="false" text="id_C" visible="false" />
                         <TableColumn fx:id="numSerie" prefWidth="160.0" text="numSerie" />
-                        <TableColumn fx:id="description" prefWidth="640.0" text="description " />
+                        <TableColumn fx:id="description" prefWidth="262.0" text="description " />
                     </columns>
                 </TableView>
                 <Label layoutX="399.0" layoutY="161.0" prefHeight="17.0" prefWidth="376.0" text="Afficher Categorie" />

@@ -30,9 +30,8 @@ public class EquipementService implements IService<Equipement> {
 
     @Override
     public void delete (Equipement equipement) {
-        try {
-            String req = "delete from equipement where id_equipement=?";
-            PreparedStatement pst = connection.prepareStatement(req);
+        String req = "DELETE FROM equipement WHERE id_equipement=?";
+        try (PreparedStatement pst = connection.prepareStatement(req)){
             pst.setInt(1, equipement.getId_equipement());
             pst.executeUpdate();
             System.out.println("Suppression avec succes");
@@ -64,11 +63,11 @@ public class EquipementService implements IService<Equipement> {
              ResultSet rs = st.executeQuery(req)) {
             while (rs.next()) {
                 Equipement e= new Equipement();
-               // e.setId_equipement(rs.getInt("id_equipement"));
+                e.setId_equipement(rs.getInt("id_equipement"));
                 e.setNom(rs.getString("nom"));
                 e.setStatut(rs.getString("statut"));
                 e.setType(rs.getString("type"));
-                 equipementList.add(e);
+                equipementList.add(e);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

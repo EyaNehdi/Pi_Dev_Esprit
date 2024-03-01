@@ -23,7 +23,7 @@
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../resources/ben-affleck.png" />
+                                        <Image url="" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -33,11 +33,11 @@
                             <padding>
                                 <Insets left="40.0" />
                             </padding></Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" text="Afficher Equipement">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="" text="Afficher Equipement">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../resources/ic_usr.png" />
+                                        <Image url="" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -45,11 +45,11 @@
                                 <Insets left="40.0" />
                             </padding>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../css/fullpackstyling.css" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="" textFill="WHITE">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../resources/profile-adam-levine.png" />
+                                        <Image url="" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -61,7 +61,7 @@
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../resources/profile-james-marsden.png" />
+                                        <Image url="" />
                                     </image>
                                 </ImageView>
                             </graphic>
@@ -86,7 +86,8 @@
                 <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
                 <TableView fx:id="tv_equipement" layoutX="14.0" layoutY="225.0" onMouseClicked="#mouseClicked" prefHeight="316.0" prefWidth="783.0">
                     <columns>
-                        <TableColumn fx:id="nom" prefWidth="204.0" text="Nom" />
+                  <TableColumn fx:id="id_C" minWidth="0.0" prefWidth="0.0" text="Id" />
+                        <TableColumn fx:id="nom" prefWidth="408.0" text="Nom" />
                         <TableColumn fx:id="statut" prefWidth="316.0" text="Statut" />
                         <TableColumn fx:id="type" prefWidth="262.0" text="Type" />
                     </columns>

@@ -32,6 +32,9 @@ public class afficherEquipement {
     private TableColumn<Equipement, String> nom;
 
     @FXML
+    private TableColumn<Equipement, Integer> id_C;
+
+    @FXML
     private TableColumn<Equipement, String> statut;
 
     @FXML
@@ -47,13 +50,15 @@ public class afficherEquipement {
     private Button btnSupprimer;
 
     private FilteredList<Equipement> filteredEquipement;
+    ObservableList<Equipement> equipements = FXCollections.observableArrayList();
+
 
     @FXML
     void initialize() {
         try {
             btnModifier.setDisable(true);
             btnSupprimer.setDisable(true);
-
+            id_C.setCellValueFactory(new PropertyValueFactory<>("id_equipement"));
             nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
             statut.setCellValueFactory(new PropertyValueFactory<>("statut"));
             type.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -80,6 +85,7 @@ public class afficherEquipement {
 
             // Lier le FilteredList à la TableView
             tv_equipement.setItems(filteredEquipement);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -114,11 +120,16 @@ public class afficherEquipement {
             Equipement equipementSelectionne = tv_equipement.getSelectionModel().getSelectedItem();
 
             if (equipementSelectionne != null) {
-                serviceEquipement.delete(equipementSelectionne);
-
+                EquipementService eq=new EquipementService();
+                eq.delete(equipementSelectionne);
+                equipements.remove(equipementSelectionne);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("DONE");
+                alert.setContentText("Delete done");
+                alert.showAndWait();
                 // Mettre à jour la liste observable
-                ObservableList<Equipement> equipements = FXCollections.observableList(serviceEquipement.readAll());
-                tv_equipement.setItems(equipements);
+                //ObservableList<Equipement> equipements = FXCollections.observableList(serviceEquipement.readAll());
+                //tv_equipement.setItems(equipements);
             } else {
                 // Afficher une alerte si aucun équipement n'est sélectionné
                 Alert alert = new Alert(Alert.AlertType.WARNING);

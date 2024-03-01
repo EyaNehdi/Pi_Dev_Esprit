@@ -69,6 +69,7 @@ public class CategorieService implements IService<Categorie> {
                     System.out.println("Description récupérée : " + rs.getString("description"));
 
                     // Assignation des valeurs aux propriétés de l'objet Categorie
+                    c.setId_categorie(rs.getInt("id_categorie"));
                     c.setNumSerie(rs.getInt("numSerie"));
                     c.setDescription(rs.getString("description"));
                 } catch (SQLException ex) {

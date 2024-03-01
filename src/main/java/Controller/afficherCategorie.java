@@ -29,16 +29,13 @@ import Controller.afficherCategorie;
 
 public class afficherCategorie {
         CategorieService serviceCategorie = new CategorieService();
-        private int idCu;
         @FXML
         private TableColumn<Categorie, String> description;
 
         @FXML
-        private TableColumn<Categorie, Integer> id_categorie;
-
-        @FXML
         private TableColumn<Categorie, Integer> numSerie;
-
+        @FXML
+        private TableColumn<Categorie, Integer> numSerie2;
         @FXML
         private TableView<Categorie> tv_categorie;
         @FXML
@@ -57,12 +54,11 @@ public class afficherCategorie {
                         btnSupprimer.setDisable(true);
                         ObservableList<Categorie> categorie = FXCollections.observableList(serviceCategorie.readAll());
                         tv_categorie.setItems(categorie);
+                        numSerie2.setCellValueFactory(new PropertyValueFactory<>("id_categorie"));
                         numSerie.setCellValueFactory(new PropertyValueFactory<>("numSerie"));
                         description.setCellValueFactory(new PropertyValueFactory<>("description"));
-
-
                 } catch (SQLException e) {
-                        throw new RuntimeException(e);
+                        System.out.println(e.getMessage());
                 }
         }
 
@@ -73,9 +69,6 @@ public class afficherCategorie {
         public void mouseClicked (MouseEvent mouseEvent) {
                 Categorie categorie = tv_categorie.getSelectionModel().getSelectedItem();
                 if (categorie != null) {
-
-                        numSerie.setText(Integer.toString(categorie.getNumSerie())); // Conversion de int en String si nécessaire
-                        description.setText(categorie.getDescription());
                         btnModifier.setDisable(false);
                         btnSupprimer.setDisable(false);
                 }
