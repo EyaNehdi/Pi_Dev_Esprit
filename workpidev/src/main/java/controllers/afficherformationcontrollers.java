@@ -68,7 +68,7 @@ public class afficherformationcontrollers {
     @FXML
     void Excel(ActionEvent event) {
         try {
-            // Création d'un nouveau classeur Excel
+
             Workbook workbook = new XSSFWorkbook();
             Sheet sheet = workbook.createSheet("Formations");
 
@@ -86,7 +86,7 @@ public class afficherformationcontrollers {
                 row.createCell(1).setCellValue(formation.getDate());
             }
 
-            // Sauvegarde du fichier Excel
+
             String desktopPath = System.getProperty("user.home") + "/Desktop/";
             File file = new File(desktopPath + "ListeFormations.xlsx");
             try (FileOutputStream outputStream = new FileOutputStream(file)) {
@@ -106,17 +106,17 @@ public class afficherformationcontrollers {
         try {
             ObservableList<formation> formations = FXCollections.observableArrayList(Serviceformation.afficher());
 
-            // Check if the search text is empty
+
             if (rechercheText.isEmpty()) {
-                // If empty, display all formations
+
                 tv_formation.setItems(formations);
             } else {
-                // Apply a filter based on the search text (name or date)
+
                 ObservableList<formation> filteredFormations = formations.filtered(f ->
                         f.getNom().toLowerCase().contains(rechercheText) || f.getDate().toLowerCase().contains(rechercheText)
                 );
 
-                // Update the TableView with the filtered data
+
                 tv_formation.setItems(filteredFormations);
             }
         } catch (SQLException e) {

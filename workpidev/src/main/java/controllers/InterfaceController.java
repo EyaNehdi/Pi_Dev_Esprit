@@ -58,6 +58,7 @@ public class InterfaceController {
     @FXML
     void Voir_Equipements(ActionEvent event) {
 
+
     }
 
     @FXML

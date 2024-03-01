@@ -52,12 +52,12 @@ public class ajouterformationcontrollers {
 
     @FXML
     void Ajouterformation(ActionEvent event) {
-        // Vérifier si les champs sont valides avant d'ajouter la formation
+
         if (validateFields()) {
             try {
                 String nom = tfnom.getText();
 
-                // Vérifier si le nom contient uniquement des lettres
+
                 if (!isAlpha(nom)) {
                     showAlert(Alert.AlertType.WARNING, "Nom invalide", "Le nom de la formation doit contenir uniquement des lettres.");
                     return;
@@ -65,7 +65,7 @@ public class ajouterformationcontrollers {
 
                 LocalDate date = tfdate.getValue();
 
-                // Vérifier si la date de la formation est antérieure à la date actuelle
+
                 if (date.isBefore(LocalDate.now())) {
                     showAlert(Alert.AlertType.WARNING, "Date invalide", "La date de la formation ne peut pas être antérieure à la date actuelle.");
                     return;
@@ -90,7 +90,7 @@ public class ajouterformationcontrollers {
             return false;
         }
 
-        // Ajoutez d'autres contrôles de validation si nécessaire (par exemple, validation du format de la date)
+
 
         return true;
     }
