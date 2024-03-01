@@ -1,0 +1,223 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:44), pid=7088, tid=8764
+#
+# JRE version:  (21.0.2+13) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.2+13-58, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dmaven.multiModuleProjectDirectory=C:\Users\lenovo\IdeaProjects\lindaM -Djansi.passthrough=true -Dmaven.home=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3 -Dclassworlds.conf=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3\bin\m2.conf -Dmaven.ext.class.path=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven-event-listener.jar -javaagent:C:\IntelliJ IDEA 2023.3.3\lib\idea_rt.jar=61182:C:\IntelliJ IDEA 2023.3.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 org.codehaus.classworlds.Launcher -Didea.version=2023.3.3 org.openjfx:javafx-maven-plugin:0.0.8:run
+
+Host: Intel(R) Core(TM) i5-1035G1 CPU @ 1.00GHz, 8 cores, 7G,  Windows 11 , 64 bit Build 22621 (10.0.22621.3085)
+Time: Thu Feb 29 22:48:16 2024 Paris, Madrid elapsed time: 0.012650 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000190e5d03970):  JavaThread "Unknown thread" [_thread_in_vm, id=8764, stack(0x000000398da00000,0x000000398db00000) (1024K)]
+
+Stack: [0x000000398da00000,0x000000398db00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6cade9]
+V  [jvm.dll+0x8569c1]
+V  [jvm.dll+0x858d2e]
+V  [jvm.dll+0x859413]
+V  [jvm.dll+0x280e56]
+V  [jvm.dll+0xbeb17]
+V  [jvm.dll+0x3273b5]
+V  [jvm.dll+0x81ef6d]
+V  [jvm.dll+0x3bba01]
+V  [jvm.dll+0x807928]
+V  [jvm.dll+0x44f50e]
+V  [jvm.dll+0x450e11]
+C  [jli.dll+0x52a3]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5aa58]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff8ec3ebb88, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+
+=>0x00000190e5d03970 (exited) JavaThread "Unknown thread"    [_thread_in_vm, id=8764, stack(0x000000398da00000,0x000000398db00000) (1024K)]
+Total: 1
+
+Threads with active compile tasks:
+Total: 0
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000000000000, size: 0 MB, Compressed Oops mode: 32-bit
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 5 size 8 Array Of Cards #cards 12 size 40 Howl #buckets 4 coarsen threshold 1843 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 2048
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.008 Loaded shared library C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6d44f0000 - 0x00007ff6d44fe000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\java.exe
+0x00007ff92ead0000 - 0x00007ff92ece7000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff92cb60000 - 0x00007ff92cc24000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff92c470000 - 0x00007ff92c816000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff92c350000 - 0x00007ff92c461000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff916610000 - 0x00007ff916628000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\jli.dll
+0x00007ff9191e0000 - 0x00007ff9191fb000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\VCRUNTIME140.dll
+0x00007ff92cf80000 - 0x00007ff92d12e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff918b60000 - 0x00007ff918df3000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100\COMCTL32.dll
+0x00007ff92be40000 - 0x00007ff92be66000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff92e000000 - 0x00007ff92e0a7000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff92db50000 - 0x00007ff92db79000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff92be70000 - 0x00007ff92bf88000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff92c080000 - 0x00007ff92c11a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff92c880000 - 0x00007ff92c8b1000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff9166d0000 - 0x00007ff9166dc000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\vcruntime140_1.dll
+0x00007ff912dc0000 - 0x00007ff912e4e000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\msvcp140.dll
+0x00007ff8eb820000 - 0x00007ff8ec537000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\server\jvm.dll
+0x00007ff92dcf0000 - 0x00007ff92dda3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff92ced0000 - 0x00007ff92cf78000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff92be10000 - 0x00007ff92be38000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff92d130000 - 0x00007ff92d247000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff92db80000 - 0x00007ff92dbf1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff92ad40000 - 0x00007ff92ad8d000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ff923c40000 - 0x00007ff923c4a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff924950000 - 0x00007ff924984000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff92acc0000 - 0x00007ff92acd3000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ff92af40000 - 0x00007ff92af58000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff916600000 - 0x00007ff91660a000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\jimage.dll
+0x00007ff929740000 - 0x00007ff929973000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff92e6b0000 - 0x00007ff92ea39000 	C:\WINDOWS\System32\combase.dll
+0x00007ff92dc10000 - 0x00007ff92dce7000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff910110000 - 0x00007ff910142000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff92c000000 - 0x00007ff92c07a000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff926ec0000 - 0x00007ff926ecf000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\instrument.dll
+0x00007ff914da0000 - 0x00007ff914dbf000 	C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\lenovo\.jdks\openjdk-21.0.2\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.2506_none_270c5ae97388e100;C:\Users\lenovo\.jdks\openjdk-21.0.2\bin\server
+
+VM Arguments:
+jvm_args: -Dmaven.multiModuleProjectDirectory=C:\Users\lenovo\IdeaProjects\lindaM -Djansi.passthrough=true -Dmaven.home=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3 -Dclassworlds.conf=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3\bin\m2.conf -Dmaven.ext.class.path=C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven-event-listener.jar -javaagent:C:\IntelliJ IDEA 2023.3.3\lib\idea_rt.jar=61182:C:\IntelliJ IDEA 2023.3.3\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: org.codehaus.classworlds.Launcher -Didea.version=2023.3.3 org.openjfx:javafx-maven-plugin:0.0.8:run
+java_class_path (initial): C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3\boot\plexus-classworlds-2.7.0.jar;C:\IntelliJ IDEA 2023.3.3\plugins\maven\lib\maven3\boot\plexus-classworlds.license
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 132120576                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2095054848                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2095054848                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=C:\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\instantclient12.2;C:\oraclexe;C:\oraclexe\app\oracle\admin\XE;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\GitExtensions\;C:\Program Files\dotnet\;C:\xampp\php;C:\composer;C:\Users\lenovo\scoop\shims;C:\Users\lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\lenovo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lenovo\AppData\Local\GitHubDesktop\bin;C:\xampp\php;C:\Users\lenovo\AppData\Roaming\Composer\vendor\bin;C:\IntelliJ IDEA 2023.3.3\bin;
+USERNAME=lenovo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 126 Stepping 5, GenuineIntel
+TMP=C:\Users\lenovo\AppData\Local\Temp
+TEMP=C:\Users\lenovo\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 22621 (10.0.22621.3085)
+OS uptime: 3 days 11:09 hours
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 126 stepping 5 microcode 0x86, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, avx512_vbmi2, avx512_vbmi, rdtscp, rdpid, fsrm, gfni, avx512_bitalg, f16c, pku, avx512_ifma
+Processor Information for all 8 processors :
+  Max Mhz: 1190, Current Mhz: 991, Mhz Limit: 987
+
+Memory: 4k page, system-wide physical 7987M (521M free)
+TotalPageFile size 32563M (AvailPageFile size 24M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 16M, peak: 17M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.2+13-58) for windows-amd64 JRE (21.0.2+13-58), built on 2024-01-05T18:32:24Z by "mach5one" with MS VC++ 17.1 (VS2022)
+
+END.
