@@ -27,7 +27,7 @@
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Button>
-      <Button layoutX="586.0" layoutY="381.0" mnemonicParsing="false" onAction="#Afficher_reservation" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Afficher">
+      <Button layoutX="586.0" layoutY="381.0" mnemonicParsing="false" onAction="#AfficherReservation" prefHeight="42.0" prefWidth="94.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Afficher">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font></Button>
