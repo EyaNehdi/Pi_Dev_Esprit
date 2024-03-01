@@ -41,7 +41,7 @@ public class AjouterreservationController {
     void Afficher_reservation(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/Afficherreservation.fxml"));
-            tf_iduser.getScene().setRoot(root);
+            tf_idevent.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -66,6 +66,13 @@ public class AjouterreservationController {
 
         int idEvent = Integer.parseInt(idEventText);
         int idUser = Integer.parseInt(idUserText);
+        // Ajouter la réservation en utilisant votre service
+        try {
+            servicesreservation.ajouter(new reservation(idEvent, idUser));
+            showAlert(Alert.AlertType.INFORMATION, "Réservation ajoutée", "La réservation a été ajoutée avec succès.");
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur lors de l'ajout", "Une erreur s'est produite lors de l'ajout de la réservation : " + e.getMessage());
+        }
     }
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
