@@ -107,7 +107,7 @@
         </Pane>
       <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="853.0" layoutY="36.0">
          <image>
-            <Image url="@../../../../../Downloads/420547947_1153507129404551_6366238029742833789_n.jpg" />
+            <Image url="@image/logo.jpg" />
          </image>
       </ImageView>
     </children>

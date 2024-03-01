@@ -98,6 +98,10 @@ public class afficherCategorie {
 
                                 serviceCategorie.delete(categorieSelectionne);
                                 System.out.println("Catégorie supprimée de la base de données");
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("DONE");
+                                alert.setContentText("Delete done");
+                                alert.showAndWait();
 
                                 // Mettre à jour la liste observable
                                 ObservableList<Categorie> categories = FXCollections.observableList(serviceCategorie.readAll());
@@ -116,6 +120,7 @@ public class afficherCategorie {
                                 alert.setContentText("Veuillez sélectionner une catégorie à supprimer.");
                                 alert.showAndWait();
                                 System.out.println("Aucune catégorie sélectionnée");
+
                         }
 
                         System.out.println("Fin de la méthode delete");

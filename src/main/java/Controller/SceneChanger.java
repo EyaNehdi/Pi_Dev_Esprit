@@ -16,5 +16,6 @@ public class SceneChanger {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }
