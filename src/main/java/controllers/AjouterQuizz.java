@@ -35,6 +35,8 @@ public class AjouterQuizz {
 
     @FXML
     private TextField tf_question;
+    @FXML
+    private Button btnRetour;
 
     @FXML
     void initialize() {
@@ -75,6 +77,10 @@ public class AjouterQuizz {
     public void Lister() {
         Stage stage = (Stage) btnLister.getScene().getWindow();
         SceneChanger.changerScene("/AfficherQuizz.fxml", stage);
+    }
+    public void Retour() {
+        Stage stage = (Stage) btnLister.getScene().getWindow();
+        SceneChanger.changerScene("/AjouterCours.fxml", stage);
     }
 
     private boolean champsVides() {

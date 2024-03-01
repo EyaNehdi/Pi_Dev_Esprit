@@ -21,22 +21,22 @@
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false"  prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
                             <font>
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false"  prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
                             <font>
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false"  prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
                             <font>
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false"  prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
                             <font>
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>

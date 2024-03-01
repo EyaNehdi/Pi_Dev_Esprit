@@ -71,9 +71,9 @@
             </VBox>
             <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: orange; -fx-background-radius: 5;">
                <children>
-                  <Label layoutX="25.0" layoutY="17.0" text="Home Space" textFill="WHITE">
+                  <Label layoutX="48.0" layoutY="9.0" prefHeight="33.0" prefWidth="104.0" text="AjouterQuizz" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="Comic Sans MS" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -124,8 +124,13 @@
                </font>
             </Label>
             <Button fx:id="btnAjouter" layoutX="464.0" layoutY="550.0" mnemonicParsing="false" onAction="#AjouterQuizz" text="Ajouter" />
-            <Button layoutX="585.0" layoutY="550.0" mnemonicParsing="false" text="Retour" />
+            <Button fx:id="btnRetour" layoutX="585.0" layoutY="550.0" mnemonicParsing="false" onAction="#Retour" text="Retour" />
             <Button fx:id="btnLister" layoutX="73.0" layoutY="550.0" mnemonicParsing="false" onAction="#Lister" text="Liste Quizz" />
+            <ImageView fitHeight="72.0" fitWidth="191.0" layoutX="551.0" layoutY="47.0">
+               <image>
+                  <Image url="@image/logo.png" />
+               </image>
+            </ImageView>
 
          </children>
       </Pane>

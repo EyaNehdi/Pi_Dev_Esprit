@@ -28,12 +28,20 @@ public class AjouterCours {
 
     @FXML
     private TextField titref;
+@FXML
+private Button btnQuizz;
 
+    @FXML
+    public void Voir_Quizz() {
+        Stage stage = (Stage) btnLister.getScene().getWindow();
+        SceneChanger.changerScene("/AjouterQuizz.fxml", stage);
+    }
     @FXML
     public void Lister() {
         Stage stage = (Stage) btnLister.getScene().getWindow();
         SceneChanger.changerScene("/AfficherCours.fxml", stage);
     }
+
 
     @FXML
     private void AjouterCours() {
