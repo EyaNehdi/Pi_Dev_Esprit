@@ -2,8 +2,10 @@ package controllers;
 
 import entities.formation;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -13,12 +15,11 @@ public class frontend {
     @FXML
     private Label lb_Accueil;
 
-    @FXML
-    private ListView<formation> formationListView;
 
-    public void setFormations(List<formation> formations) {
-        formationListView.getItems().addAll(formations);
-    }
+    @FXML
+    private TableView<?> tvformation;
+
+
 
     @FXML
     void Voir_Abonnements(ActionEvent event) {

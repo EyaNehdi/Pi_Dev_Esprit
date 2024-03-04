@@ -141,6 +141,7 @@ public class afficherformationcontrollers {
                     Serviceformation.modifier(selectedFormation);
 
                     // Rafraîchir la TableView
+                    //ObservableList<formation> formations = DataHolder.getFormationsData();
                     ObservableList<formation> formations = FXCollections.observableList(Serviceformation.afficher());
                     tv_formation.setItems(formations);
                 } catch (SQLException e) {
@@ -304,23 +305,35 @@ public class afficherformationcontrollers {
 
             // Configuration du contenu du PDF
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-            contentStream.beginText();
-            contentStream.newLineAtOffset(100, 700); // Ajustez la position selon vos besoins
+            contentStream.setFont(PDType1Font.HELVETICA_BOLD, 16);
 
-            // Ajout du titre
+            // Titre du document
+            contentStream.beginText();
+            contentStream.newLineAtOffset(100, 750);
             contentStream.showText("Liste des Formations");
+            contentStream.endText();
+
+            // Ligne de séparation
+            contentStream.moveTo(100, 745);
+            contentStream.lineTo(page.getMediaBox().getWidth() - 100, 745);
+            contentStream.stroke();
+
+            // Configuration pour le contenu de la TableView
+            contentStream.setFont(PDType1Font.HELVETICA, 12);
+            int yPosition = 700; // Ajustez la position selon vos besoins
 
             // Ajout des données de la TableView
             ObservableList<formation> formations = tv_formation.getItems();
-            int yPosition = 680; // Ajustez la position selon vos besoins
             for (formation formation : formations) {
                 yPosition -= 20; // Ajustez l'espacement entre les lignes selon vos besoins
-                contentStream.newLineAtOffset(0, -20);
-                contentStream.showText("Nom: " + formation.getNom() + ", Date: " + formation.getDate());
+                contentStream.beginText();
+                contentStream.newLineAtOffset(100, yPosition);
+                contentStream.showText("Nom: " + formation.getNom());
+                contentStream.newLineAtOffset(200, 0);
+                contentStream.showText("Date: " + formation.getDate());
+                contentStream.endText();
             }
 
-            contentStream.endText();
             contentStream.close();
 
             // Spécifiez le chemin du bureau pour enregistrer le fichier PDF
@@ -336,6 +349,8 @@ public class afficherformationcontrollers {
             showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors du téléchargement du fichier PDF : " + e.getMessage());
         }
     }
+
+
 
     public void Voir_Abonnements(ActionEvent actionEvent) {
     }

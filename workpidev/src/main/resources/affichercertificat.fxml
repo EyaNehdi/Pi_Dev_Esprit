@@ -26,10 +26,10 @@
                     </columns>
                 </TableView>
 
-                <Button fx:id="btnGenerateQRCode" layoutX="291.0" layoutY="484.0" mnemonicParsing="false" onAction="#generateQRCode" prefHeight="34.0" prefWidth="126.0" style="-fx-background-radius: 8; -fx-background-color: yellow;" text="Générer QR Code" textFill="BLACK" />
+                <Button fx:id="btnGenerateQRCode" layoutX="497.0" layoutY="485.0" mnemonicParsing="false" onAction="#generateQRCode" prefHeight="34.0" prefWidth="126.0" style="-fx-background-radius: 8; -fx-background-color: yellow;" text="Générer QR Code" textFill="BLACK" />
 
-                <Button fx:id="bn_sup" layoutX="115.0" layoutY="484.0" mnemonicParsing="false" onAction="#supprimercertif" prefHeight="34.0" prefWidth="96.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Supprimer" textFill="#f5f4f4" />
-                <Button fx:id="modcer" layoutX="488.0" layoutY="484.0" mnemonicParsing="false" onAction="#modifiercer" prefHeight="34.0" prefWidth="85.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Modifier" textFill="WHITE" />
+                <Button fx:id="bn_sup" layoutX="115.0" layoutY="488.0" mnemonicParsing="false" onAction="#supprimercertif" prefHeight="34.0" prefWidth="96.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="Supprimer" textFill="#f5f4f4" />
+                <Button fx:id="modcer" layoutX="340.0" layoutY="488.0" mnemonicParsing="false" onAction="#modifiercer" prefHeight="34.0" prefWidth="85.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Modifier" textFill="WHITE" />
                 <ImageView fitHeight="61.0" fitWidth="163.0" layoutX="439.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Assets/a.png" />
@@ -40,6 +40,8 @@
                         <Image url="@Assets/ll.png" />
                     </image>
                 </ImageView>
+            <Button fx:id="print" layoutY="488.0" mnemonicParsing="false" onAction="#print" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="imprimer" textFill="#f5efef" />
+            <Button fx:id="capture" layoutX="228.0" layoutY="488.0" mnemonicParsing="false" onAction="#capture" prefHeight="34.0" prefWidth="85.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="capture" textFill="#eeeaea" />
             </children>
         </Pane>
       <AnchorPane layoutX="-2.0" layoutY="-3.0" prefHeight="568.0" prefWidth="243.0" style="-fx-background-color: orange;">

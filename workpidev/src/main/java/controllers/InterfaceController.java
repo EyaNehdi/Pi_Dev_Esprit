@@ -6,7 +6,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -35,7 +38,23 @@ public class InterfaceController {
 
     @FXML
     private TextField tf_cours;
+    @FXML
+    private Button f;
+    @FXML
+    void f(ActionEvent event) {
+        try {
+            // Charger le fichier FXML de la nouvelle page
+            Parent root = FXMLLoader.load(getClass().getResource("/frontend.fxml"));
 
+            // Accéder à la scène à partir de n'importe quel élément graphique dans la scène actuelle
+            Scene currentScene = ((Node) event.getSource()).getScene();
+
+            // Changer la racine de la scène pour afficher la nouvelle page
+            currentScene.setRoot(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     private TextField tf_equipements;
 

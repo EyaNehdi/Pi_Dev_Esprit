@@ -52,6 +52,7 @@
                         </Label>
                     </children>
                 </Pane>
+            <Button fx:id="f" layoutX="64.0" layoutY="51.0" mnemonicParsing="false" onAction="#f" text="f" />
             </children>
         </AnchorPane>
         <Pane layoutX="256.0" layoutY="-154.0" prefHeight="288.0" prefWidth="182.0" rotate="-32.9" style="-fx-background-color: orange; -fx-background-radius: 70;" />

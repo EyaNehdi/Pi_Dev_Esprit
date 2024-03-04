@@ -2,11 +2,17 @@ package controllers;
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
+
 import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.SnapshotResult;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import com.google.zxing.qrcode.QRCodeWriter;
@@ -18,6 +24,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.EnumMap;
 import entities.certificat;
 import javafx.collections.FXCollections;
@@ -27,6 +34,8 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.util.Callback;
+import org.apache.commons.io.FileUtils;
 import services.servicescertificat;
 
 import java.sql.SQLException;
@@ -39,10 +48,12 @@ import java.util.Date;
 import java.util.Optional;
 
 public class affichercertificatcontrollers {
-
+    @FXML
+    private Button capture;
     @FXML
     private TableView<certificat> tf_tableview;
-
+    @FXML
+    private Button print;
     @FXML
     private TableColumn<certificat, String> tf_cert;
 
@@ -60,6 +71,143 @@ public class affichercertificatcontrollers {
 
     @FXML
     private Button modcer;
+    @FXML
+    void print(ActionEvent event) {
+        certificat selectedCertificat = tf_tableview.getSelectionModel().getSelectedItem();
+
+        if (selectedCertificat != null) {
+            printCertificate(selectedCertificat);
+        } else {
+            showAlert(Alert.AlertType.WARNING, "Aucun Certificat Sélectionné", "Veuillez sélectionner un certificat à imprimer.");
+        }
+    }
+    @FXML
+    void capture(ActionEvent event) { try {
+        // Récupérez la scène actuelle
+        Scene scene = tf_tableview.getScene();
+
+        // Créez un objet WritableImage pour la capture d'écran
+        WritableImage image = scene.snapshot(null);
+
+        // Obtenez le chemin du bureau
+        String desktopPath = System.getProperty("user.home") + "/Desktop";
+
+        // Créez un chemin complet pour le fichier sur le bureau
+        String imagePath = desktopPath + "/capture_ecran.png";
+
+        // Créez un fichier pour le chemin sur le bureau
+        File file = new File(imagePath);
+
+        // Créez une instance de PixelReader pour lire les pixels de l'image
+        PixelReader pixelReader = image.getPixelReader();
+
+        // Créez une image BufferedImage avec le même nombre de pixels que l'image JavaFX
+        BufferedImage bufferedImage = new BufferedImage((int) image.getWidth(), (int) image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+
+        // Pour chaque pixel, définissez la couleur dans l'image BufferedImage
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                javafx.scene.paint.Color color = ((PixelReader) pixelReader).getColor(x, y);
+                int argb = (int) (color.getOpacity() * 255) << 24 |
+                        (int) (color.getRed() * 255) << 16 |
+                        (int) (color.getGreen() * 255) << 8 |
+                        (int) (color.getBlue() * 255);
+                bufferedImage.setRGB(x, y, argb);
+            }
+        }
+
+        // Enregistrez l'image BufferedImage dans le fichier sur le bureau
+        ImageIO.write(bufferedImage, "png", file);
+
+        // Affichez un message d'information
+        showAlert(Alert.AlertType.INFORMATION, "Capture d'écran réussie", "La capture d'écran a été enregistrée avec succès sur le bureau.");
+
+    } catch (Exception e) {
+        showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la capture d'écran : " + e.getMessage());
+    }
+    }
+    private void printCertificate(certificat selectedCertificat) {
+        try {
+            // Préparer le contenu HTML pour l'impression
+            String htmlContent =
+                    "<!DOCTYPE html>\n" +
+                            "<html lang=\"en\">\n" +
+                            "<head>\n" +
+                            "    <meta charset=\"UTF-8\">\n" +
+                            "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                            "    <title>Certificate of Completion</title>\n" +
+                            "    <style>\n" +
+                            "        body {\n" +
+                            "            font-family: 'Arial', sans-serif;\n" +
+                            "            background-color: #f2f2f2;\n" +
+                            "            margin: 0;\n" +
+                            "            padding: 20px;\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        .certificate {\n" +
+                            "            max-width: 600px;\n" +
+                            "            margin: 0 auto;\n" +
+                            "            background-color: #fff;\n" +
+                            "            border: 1px solid #ccc;\n" +
+                            "            padding: 20px;\n" +
+                            "            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        h1 {\n" +
+                            "            color: #333;\n" +
+                            "            text-align: center;\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        .details {\n" +
+                            "            margin-top: 30px;\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        .details p {\n" +
+                            "            margin: 10px 0;\n" +
+                            "            color: #555;\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        .signature {\n" +
+                            "            display: block;\n" +
+                            "            margin-top: 50px;\n" +
+                            "            text-align: center;\n" +
+                            "        }\n" +
+                            "\n" +
+                            "        .signature img {\n" +
+                            "            max-width: 150px;\n" +
+                            "            height: auto;\n" +
+                            "        }\n" +
+                            "    </style>\n" +
+                            "</head>\n" +
+                            "<body>\n" +
+                            "    <div class=\"certificate\">\n" +
+                            "        <h1>Certificate of Completion</h1>\n" +
+                            "        \n" +
+                            "        <div class=\"details\">\n" +
+                            "            <p><strong>Name:</strong> " + selectedCertificat.getNomeleve() + "</p>\n" +
+                            "            <p><strong>Instructor:</strong> " + selectedCertificat.getNomformateur() + "</p>\n" +
+                            "            <p><strong>Course:</strong> " + selectedCertificat.getNom() + "</p>\n" +
+                            "            <p><strong>Date:</strong> " + selectedCertificat.getDate() + "</p>\n" +
+                            "        </div>\n" +
+                            "\n" +
+                            "        <div class=\"signature\">\n" +
+                            "            <img src=\"Assets/sig.png\" alt=\"Signature\">\n" +
+                            "        </div>\n" +
+                            "    </div>\n" +
+                            "</body>\n" +
+                            "</html>";
+
+            // Créer un fichier HTML temporaire
+            File tempHtmlFile = File.createTempFile("certificate", ".html");
+            FileUtils.writeStringToFile(tempHtmlFile, htmlContent, StandardCharsets.UTF_8);
+
+            // Ouvrir le fichier HTML dans le navigateur par défaut du système
+            Desktop.getDesktop().browse(tempHtmlFile.toURI());
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'impression du certificat : " + e.getMessage());
+        }
+    }
+
 
     @FXML
     void supprimercertif() {
@@ -227,11 +375,11 @@ public class affichercertificatcontrollers {
 
         if (selectedCertificat != null) {
             try {
-                // Génération du contenu du QR code (vous pouvez ajuster cela en fonction de vos besoins)
-                String qrCodeContent = selectedCertificat.getNom() + "\n" +
-                        selectedCertificat.getNomeleve() + "\n" +
-                        selectedCertificat.getNomformateur() + "\n" +
-                        selectedCertificat.getDate();
+                // Génération du contenu du QR code
+                String qrCodeContent = "Nom: " + selectedCertificat.getNom() + "\n" +
+                        "Nom de l'élève: " + selectedCertificat.getNomeleve() + "\n" +
+                        "Nom du formateur: " + selectedCertificat.getNomformateur() + "\n" +
+                        "Date: " + selectedCertificat.getDate();
 
                 // Création d'un fichier temporaire pour le QR code
                 File tempFile = File.createTempFile("qrcode", ".png");
@@ -241,11 +389,9 @@ public class affichercertificatcontrollers {
                 BitMatrix bitMatrix = qrCodeWriter.encode(qrCodeContent, BarcodeFormat.QR_CODE, 200, 200);
                 MatrixToImageWriter.writeToPath(bitMatrix, "PNG", tempFile.toPath());
 
-                // Affichage d'un message d'information
-                showAlert(Alert.AlertType.INFORMATION, "QR Code Généré", "Le QR code a été généré avec succès.");
-
-                // Vous pouvez également ouvrir le dossier contenant le fichier QR code
-                // Desktop.getDesktop().open(tempFile.getParentFile());
+                // Affichage d'un message d'information avec titre et contenu
+                showAlert(Alert.AlertType.INFORMATION, "QR Code Généré",
+                        "Le QR code a été généré avec succès pour le certificat:\n\n" + qrCodeContent);
 
                 // Ouverture du fichier QR code
                 Desktop.getDesktop().open(tempFile);
