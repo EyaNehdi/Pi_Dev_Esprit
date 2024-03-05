@@ -38,7 +38,7 @@ public class Afficherreservationcontroller {
 
     @FXML
     void Modifier_reservation(ActionEvent event) {
-      /*  reservation selectedReservation = tv_reservation.getSelectionModel().getSelectedItem();
+        reservation selectedReservation = tv_reservation.getSelectionModel().getSelectedItem();
 
         if (selectedReservation != null) {
             boolean modificationConfirme = showModificationDialog(selectedReservation);
@@ -62,56 +62,56 @@ public class Afficherreservationcontroller {
         }
     }
 
-    private boolean showModificationDialog(reservation selectedReservation) {
-        // Créer une fenêtre de dialogue pour la modification
-        Dialog<Boolean> dialog = new Dialog<>();
-        dialog.setTitle("Modifier la Réservation");
-        dialog.setHeaderText(null);
+   private boolean showModificationDialog(reservation selectedReservation) {
+    // Créer une fenêtre de dialogue pour la modification
+    Dialog<Boolean> dialog = new Dialog<>();
+    dialog.setTitle("Modifier la Réservation");
+    dialog.setHeaderText(null);
 
-        // Configuration des boutons
-        ButtonType modifierButtonType = new ButtonType("Modifier", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(modifierButtonType, ButtonType.CANCEL);
+    // Configuration des boutons
+    ButtonType modifierButtonType = new ButtonType("Modifier", ButtonBar.ButtonData.OK_DONE);
+    dialog.getDialogPane().getButtonTypes().addAll(modifierButtonType, ButtonType.CANCEL);
 
-        // Création de la TableView temporaire
-        TableView<reservation> tempTableView = new TableView<>();
-        TableColumn<reservation, String> colEventId = new TableColumn<>("ID de l'événement");
-        colEventId.setCellValueFactory(new PropertyValueFactory<>("event_id"));
-        TableColumn<reservation, String> colUserId = new TableColumn<>("ID de l'utilisateur");
-        colUserId.setCellValueFactory(new PropertyValueFactory<>("id_user"));
-        tempTableView.getColumns().addAll(colEventId, colUserId);
-        tempTableView.getItems().add(selectedReservation);
+    // Création de la TableView temporaire
+    TableView<reservation> tempTableView = new TableView<>();
+    TableColumn<reservation, String> colEventId = new TableColumn<>("ID de l'événement");
+    colEventId.setCellValueFactory(new PropertyValueFactory<>("event_id"));
+    TableColumn<reservation, String> colUserId = new TableColumn<>("ID de l'utilisateur");
+    colUserId.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+    tempTableView.getColumns().addAll(colEventId, colUserId);
+    tempTableView.getItems().add(selectedReservation);
 
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.add(tempTableView, 0, 0);
+    GridPane grid = new GridPane();
+    grid.setHgap(10);
+    grid.setVgap(10);
+    grid.add(tempTableView, 0, 0);
 
-        dialog.getDialogPane().setContent(grid);
+    dialog.getDialogPane().setContent(grid);
 
-        // Activation du bouton de modification lorsque les champs sont valides
-        Node modifierButton = dialog.getDialogPane().lookupButton(modifierButtonType);
-        modifierButton.setDisable(false); // Le bouton est toujours activé pour modifier une ligne existante
+    // Activation du bouton de modification lorsque les champs sont valides
+    Node modifierButton = dialog.getDialogPane().lookupButton(modifierButtonType);
+    modifierButton.setDisable(false); // Le bouton est toujours activé pour modifier une ligne existante
 
-        // Résultat de la fenêtre de dialogue
-        dialog.setResultConverter(dialogButton -> dialogButton == modifierButtonType);
+    // Résultat de la fenêtre de dialogue
+    dialog.setResultConverter(dialogButton -> dialogButton == modifierButtonType);
 
-        Optional<Boolean> result = dialog.showAndWait();
-        if (result.isPresent() && result.get()) {
-            // Mettre à jour les propriétés de la réservation
-            selectedReservation.setId_user(col_nomevent.getCellData(0));
-            selectedReservation.setEvent_id(col_Nomeleve.getCellData(0));
+    Optional<Boolean> result = dialog.showAndWait();
+    if (result.isPresent() && result.get()) {
+        // Mettre à jour les propriétés de la réservation avec les données de la TableView temporaire
+        selectedReservation.setId_user(tempTableView.getItems().get(0).getId_user());
+        selectedReservation.setEvent_id(tempTableView.getItems().get(0).getEvent_id());
 
-            return true;
-        } else {
-            return false;
-        }
+        return true;
+    } else {
+        return false;
     }
+}
 
     private void updateModifierButtonState(Node modifierButton, TextField tf_nom, TextField tf_prenom) {
         modifierButton.setDisable(
                 tf_nom.getText().isEmpty() ||
                         tf_prenom.getText().isEmpty()
-        );*/
+        );
     }
 
     @FXML
@@ -147,22 +147,20 @@ public class Afficherreservationcontroller {
     @FXML
     void initialize() {
         try {
-            // Récupérer la liste des événements depuis le service
+            // Récupérer la liste des réservations depuis le service
             ObservableList<reservation> reservations = FXCollections.observableList(servicesreservation.afficher());
 
             // Définir les cellules de chaque colonne avec les données appropriées
-            col_Nomeleve.setCellValueFactory(new PropertyValueFactory<>("ID_USER"));
-            col_nomevent.setCellValueFactory(new PropertyValueFactory<>("ID_EVENT"));
+            col_Nomeleve.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+            col_nomevent.setCellValueFactory(new PropertyValueFactory<>("event_id"));
 
-            // Ajouter les événements à la TableView
+            // Ajouter les réservations à la TableView
             tv_reservation.setItems(reservations);
         } catch (SQLException e) {
             // Gérer les exceptions
             showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'affichage des réservations : " + e.getMessage());
         }
-
     }
-
     @FXML
     void Retour_reservation(ActionEvent event) {
         try {
