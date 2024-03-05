@@ -1,30 +1,38 @@
 package controller;
 
-import java.io.IOException;
-import java.sql.Date;
-
-import entities.reservation;
+import entities.event;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
-import entities.event;
-import java.sql.SQLException;
 import javafx.scene.control.Alert;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import java.util.Optional;
-import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.Node;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 import services.servicesevent;
-import entities.event;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Optional;
 import java.time.format.DateTimeFormatter;
-
-
-
-
 
 public class AffichereventController {
     services.servicesevent servicesevent = new services.servicesevent();
@@ -34,9 +42,12 @@ public class AffichereventController {
 
     @FXML
     private Button btn_supprimer;
-    @FXML
-    private Button btn_reservation;
 
+    @FXML
+    private TextField fxrecherche;
+
+    @FXML
+    private TableColumn<event, String> col_nom;
 
     @FXML
     private TableColumn<event, Date> col_date;
@@ -45,14 +56,10 @@ public class AffichereventController {
     private TableColumn<event, Date> col_datefin;
 
     @FXML
-    private TableColumn<event, String> col_nom;
-
-    @FXML
     private Label lb_event;
 
     @FXML
     private TableView<event> tv_event;
-
 
     @FXML
     void Retour(ActionEvent event) {
@@ -62,8 +69,30 @@ public class AffichereventController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
     }
+
+    @FXML
+    void chercher(ActionEvent event) {
+        String rechercheText = fxrecherche.getText().trim().toLowerCase();
+
+        try {
+            ObservableList<event> formations = FXCollections.observableArrayList(servicesevent.afficher());
+
+            if (rechercheText.isEmpty()) {
+                tv_event.setItems(formations);
+            } else {
+                // Filtrer par nom d'événement uniquement
+                ObservableList<event> filteredFormations = formations.filtered(f ->
+                        f.getNom_evenement().toLowerCase().contains(rechercheText)
+                );
+
+                tv_event.setItems(filteredFormations);
+            }
+        } catch (SQLException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la recherche de l'événement : " + e.getMessage());
+        }
+    }
+
     @FXML
     void btn_reservation(ActionEvent event) {
         try {
@@ -72,7 +101,6 @@ public class AffichereventController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     @FXML
@@ -91,7 +119,6 @@ public class AffichereventController {
         }
     }
 
-
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -99,78 +126,51 @@ public class AffichereventController {
         alert.showAndWait();
     }
 
-
     @FXML
-    void Voir_Abonnements(ActionEvent event) {
+    void initialize() {
+        try {
+            // Récupérer la liste des événements depuis le service
+            ObservableList<event> events = FXCollections.observableList(servicesevent.afficher());
 
+            // Définir les cellules de chaque colonne avec les données appropriées
+            col_nom.setCellValueFactory(new PropertyValueFactory<>("nom_evenement"));
+            col_date.setCellValueFactory(new PropertyValueFactory<>("Date_debut"));
+            col_datefin.setCellValueFactory(new PropertyValueFactory<>("Date_fin"));
+
+            // Convertir les dates en format lisible dans les cellules
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+            col_date.setCellFactory(column -> new TableCell<event, Date>() {
+                @Override
+                protected void updateItem(Date date, boolean empty) {
+                    super.updateItem(date, empty);
+                    if (empty || date == null) {
+                        setText(null);
+                    } else {
+                        setText(dateFormatter.format(date.toLocalDate()));
+                    }
+                }
+            });
+
+            col_datefin.setCellFactory(column -> new TableCell<event, Date>() {
+                @Override
+                protected void updateItem(Date date, boolean empty) {
+                    super.updateItem(date, empty);
+                    if (empty || date == null) {
+                        setText(null);
+                    } else {
+                        setText(dateFormatter.format(date.toLocalDate()));
+                    }
+                }
+            });
+
+            // Ajouter les événements à la TableView
+            tv_event.setItems(events);
+        } catch (SQLException e) {
+            // Gérer les exceptions
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'affichage des événements : " + e.getMessage());
+        }
     }
-
-    @FXML
-    void Voir_Cours(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Voir_Equipements(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Voir_Evenements(ActionEvent event) {
-
-    }
-
-    @FXML
-    void Voir_Formations(ActionEvent event) {
-
-    }
-
-   @FXML
-   void initialize() {
-       try {
-           // Récupérer la liste des événements depuis le service
-           ObservableList<event> events = FXCollections.observableList(servicesevent.afficher());
-
-           // Définir les cellules de chaque colonne avec les données appropriées
-           col_nom.setCellValueFactory(new PropertyValueFactory<>("nom_evenement"));
-           col_date.setCellValueFactory(new PropertyValueFactory<>("Date_debut"));
-           col_datefin.setCellValueFactory(new PropertyValueFactory<>("Date_fin"));
-
-           // Convertir les dates en format lisible dans les cellules
-           DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-           col_date.setCellFactory(column -> new TableCell<event, Date>() {
-               @Override
-               protected void updateItem(Date date, boolean empty) {
-                   super.updateItem(date, empty);
-                   if (empty || date == null) {
-                       setText(null);
-                   } else {
-                       setText(dateFormatter.format(date.toLocalDate()));
-                   }
-               }
-           });
-
-           col_datefin.setCellFactory(column -> new TableCell<event, Date>() {
-               @Override
-               protected void updateItem(Date date, boolean empty) {
-                   super.updateItem(date, empty);
-                   if (empty || date == null) {
-                       setText(null);
-                   } else {
-                       setText(dateFormatter.format(date.toLocalDate()));
-                   }
-               }
-           });
-
-           // Ajouter les événements à la TableView
-           tv_event.setItems(events);
-       } catch (SQLException e) {
-           // Gérer les exceptions
-           showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de l'affichage des événements : " + e.getMessage());
-       }
-   }
-
 
     @FXML
     void Modifier_event(ActionEvent event) {
@@ -183,13 +183,17 @@ public class AffichereventController {
             if (modificationConfirme) {
                 try {
                     // Mettez à jour l'événement dans la base de données
-                    servicesevent.modifier(selectedEvent);
+                    boolean modificationReussie = servicesevent.modifier(selectedEvent);
 
-                    // Rafraîchir la TableView
-                    ObservableList<event> events = FXCollections.observableList(servicesevent.afficher());
-                    tv_event.setItems(events);
+                    if (modificationReussie) {
+                        // Rafraîchir la TableView
+                        ObservableList<event> events = FXCollections.observableList(servicesevent.afficher());
+                        tv_event.setItems(events);
 
-                    showAlert(Alert.AlertType.INFORMATION, "Événement Modifié", "L'événement a été modifié avec succès.");
+                        showAlert(Alert.AlertType.INFORMATION, "Événement Modifié", "L'événement a été modifié avec succès.");
+                    } else {
+                        showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la modification de l'événement.");
+                    }
                 } catch (SQLException e) {
                     showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la modification de l'événement : " + e.getMessage());
                 }
@@ -265,4 +269,28 @@ public class AffichereventController {
         );
     }
 
+    @FXML
+    void Voir_Abonnements(ActionEvent event) {
+        // Code pour visualiser les abonnements
+    }
+
+    @FXML
+    void Voir_Cours(ActionEvent event) {
+        // Code pour visualiser les cours
+    }
+
+    @FXML
+    void Voir_Equipements(ActionEvent event) {
+        // Code pour visualiser les équipements
+    }
+
+    @FXML
+    void Voir_Evenements(ActionEvent event) {
+        // Code pour visualiser les événements
+    }
+
+    @FXML
+    void Voir_Formations(ActionEvent event) {
+        // Code pour visualiser les formations
+    }
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -99,5 +100,11 @@
             <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Button>
+      <TextField fx:id="fxrecherche" layoutX="407.0" layoutY="28.0" onAction="#chercher" promptText="chercher événement" style="-fx-background-radius: 15;" />
+      <ImageView fitHeight="42.0" fitWidth="58.0" layoutX="550.0" layoutY="7.0">
+         <image>
+            <Image url="@Images/Capture_d_écran_2024-03-05_224931-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

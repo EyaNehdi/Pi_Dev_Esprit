@@ -1,7 +1,6 @@
 package services;
 
 import entities.reservation;
-import entities.event;
 import Utils.MyDatabase;
 
 import java.sql.*;
@@ -28,7 +27,7 @@ public class servicesreservation implements Iservice<reservation> {
     }
 
     @Override
-    public void modifier(reservation reservation) throws SQLException {
+    public boolean modifier(reservation reservation) throws SQLException {
         String req = "UPDATE reservation SET id_user=?, event_id=? WHERE id=?";
         try (PreparedStatement ps = connection.prepareStatement(req)) {
             ps.setInt(1, reservation.getId_user());
@@ -43,6 +42,7 @@ public class servicesreservation implements Iservice<reservation> {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return false;
     }
 
     @Override

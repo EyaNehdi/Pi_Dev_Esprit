@@ -8,40 +8,37 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
-
+import java.time.LocalDate;
+import javafx.scene.control.Alert;
 
 public class servicesevent implements Iservice<event> {
 
     Connection connection;
-    public boolean isNomEvenementUnique(String nom_evenement) {
-        String req = "SELECT COUNT(*) AS count FROM event WHERE nom_evenement = ?";
-        try (PreparedStatement ps = connection.prepareStatement(req)) {
-            ps.setString(1, nom_evenement);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    int count = rs.getInt("count");
-                    return count == 0; // Retourne vrai si le nom d'événement est unique, faux sinon
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return false; // En cas d'erreur ou si rien n'est trouvé, considérez que le nom n'est pas unique
-    }
+
     public servicesevent() {
         connection = MyDatabase.getInstance().getConnection();
+    }
 
+    public boolean existeEvent(String nom, Date dateDebut, Date dateFin) throws SQLException {
+        String query = "SELECT * FROM event WHERE nom_evenement = ? AND date_debut = ? AND date_fin = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, nom);
+            preparedStatement.setDate(2, dateDebut);
+            preparedStatement.setDate(3, dateFin);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                return resultSet.next(); // Si un enregistrement est trouvé, cela signifie qu'un événement avec les mêmes données existe déjà
+            }
+        }
     }
 
     @Override
     public void ajouter(event event) throws SQLException {
-        if (!isNomEvenementUnique(event.getNom_evenement())) {
-            System.out.println("Erreur : Le nom de l'événement existe déjà. Événement non ajouté.");
-            throw new SQLIntegrityConstraintViolationException("Le nom de l'événement doit être unique.");
+        if (existeEvent(event.getNom_evenement(), event.getDate_debut(), event.getDate_fin())) {
+            showAlert(Alert.AlertType.ERROR, "Erreur d'ajout", "Un événement avec les mêmes données existe déjà.");
+            return;
         }
         if (event.getNom_evenement() == null || event.getNom_evenement().isEmpty()) {
-            System.out.println("Le nom de l'événement ne peut pas être vide");
+            showAlert(Alert.AlertType.ERROR, "Erreur d'ajout", "Le nom de l'événement ne peut pas être vide.");
             return;
         }
         String req = "INSERT INTO event (nom_evenement, date_debut , date_fin ) VALUES (?, ?,?)";
@@ -50,17 +47,36 @@ public class servicesevent implements Iservice<event> {
             ps.setDate(2, event.getDate_debut());
             ps.setDate(3, event.getDate_fin());
             ps.executeUpdate();
-            System.out.println("Événement ajouté avec succès");
+            showAlert(Alert.AlertType.INFORMATION, "Succès", "Événement ajouté avec succès.");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Erreur d'ajout", "Erreur lors de l'ajout de l'événement : " + e.getMessage());
         }
     }
 
-
-
-
     @Override
-    public void modifier(event event) throws SQLException {
+    public boolean modifier(event event) throws SQLException {
+        LocalDate dateActuelle = LocalDate.now();
+        LocalDate dateDebut = event.getDate_debut().toLocalDate();
+        LocalDate dateFin = event.getDate_fin().toLocalDate();
+
+        // Vérifier si la date de début est antérieure à la date actuelle
+        if (dateDebut.isBefore(dateActuelle)) {
+            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "La date de début doit être postérieure à la date actuelle.");
+            return false;
+        }
+
+        // Vérifier si la date de fin est antérieure à la date de début
+        if (dateFin.isBefore(dateDebut)) {
+            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "La date de fin doit être postérieure à la date de début.");
+            return false;
+        }
+
+        // Vérifier si un événement avec les mêmes données existe déjà
+        if (existeEvent(event.getNom_evenement(), event.getDate_debut(), event.getDate_fin())) {
+            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "Un événement avec les mêmes données existe déjà.");
+            return false;
+        }
+
         String req = "UPDATE event SET nom_evenement=?, date_debut=?  , date_fin =? WHERE id=?";
         try (PreparedStatement ps = connection.prepareStatement(req)) {
             ps.setString(1, event.getNom_evenement());
@@ -69,12 +85,15 @@ public class servicesevent implements Iservice<event> {
             ps.setInt(4, event.getId());
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Événement modifié avec succès");
+                showAlert(Alert.AlertType.INFORMATION, "Succès", "Événement modifié avec succès.");
+                return true;
             } else {
-                System.out.println("Aucun événement n'a été modifié. Vérifiez l'ID de l'événement.");
+                showAlert(Alert.AlertType.ERROR, "Erreur de modification", "Aucun événement n'a été modifié. Vérifiez l'ID de l'événement.");
+                return false;
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "Erreur lors de la modification de l'événement : " + e.getMessage());
+            return false;
         }
     }
 
@@ -85,12 +104,12 @@ public class servicesevent implements Iservice<event> {
             ps.setInt(1, id);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected > 0) {
-                System.out.println("Événement supprimé avec succès");
+                showAlert(Alert.AlertType.INFORMATION, "Succès", "Événement supprimé avec succès.");
             } else {
-                System.out.println("Aucun événement trouvé avec cet ID.");
+                showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "Aucun événement trouvé avec cet ID.");
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "Erreur lors de la suppression de l'événement : " + e.getMessage());
         }
     }
 
@@ -113,5 +132,12 @@ public class servicesevent implements Iservice<event> {
             }
         }
         return events;
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }

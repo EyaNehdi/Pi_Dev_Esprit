@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -7,6 +9,7 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
 
 import entities.event;
 import javafx.collections.FXCollections;
@@ -17,16 +20,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import services.servicesreservation;
 import entities.reservation;
+import javafx.scene.control.Button;
 
 public class Afficherreservationcontroller {
 
     services.servicesreservation servicesreservation = new servicesreservation();
 
-
+    @FXML
+    private Button btnGenerateQRCode;
     @FXML
     private TableColumn<reservation, String> col_Nomeleve;
 
@@ -171,6 +178,40 @@ public class Afficherreservationcontroller {
         }
 
     }
+ /*   @FXML
+    private void generateQRCode() {
+        reservation selectedReservation = tv_reservation.getSelectionModel().getSelectedItem();
+
+        if (selectedReservation != null) {
+            try {
+                // Génération du contenu du QR code
+                String qrCodeContent = "Nom: " + selectedReservation.getNom() + "\n" +
+                        "Nom de l'événement: " + selectedReservation.getEvent_id() + "\n" +
+                        "Nom du personne: " + selectedReservation.getId_user() + "\n" +
+                        "Date: " + selectedReservation.getDate();
+
+                // Création d'un fichier temporaire pour le QR code
+                File tempFile = File.createTempFile("qrcode", ".png");
+
+                // Écriture du contenu du QR code dans le fichier temporaire
+                QRCodeWriter qrCodeWriter = new QRCodeWriter();
+                BitMatrix bitMatrix = qrCodeWriter.encode(qrCodeContent, BarcodeFormat.QR_CODE, 200, 200);
+                MatrixToImageWriter.writeToPath(bitMatrix, "PNG", tempFile.toPath());
+
+                // Affichage d'un message d'information avec titre et contenu
+                showAlert(Alert.AlertType.INFORMATION, "QR Code Généré",
+                        "Le QR code a été généré avec succès pour le certificat:\n\n" + qrCodeContent);
+
+                // Ouverture du fichier QR code
+                Desktop.getDesktop().open(tempFile);
+            } catch (IOException | WriterException e) {
+                showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la génération du QR code : " + e.getMessage());
+            }
+        } else {
+            showAlert(Alert.AlertType.WARNING, "Aucun Certificat Sélectionné", "Veuillez sélectionner un certificat pour générer le QR code.");
+        }
+    }*/
+
     @FXML
     void Voir_Abonnements(ActionEvent event) {
         // Code pour visualiser les abonnements

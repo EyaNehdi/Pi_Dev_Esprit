@@ -50,35 +50,31 @@ public class gerer_evenementController {
         LocalDate dateActuelle = LocalDate.now(); // Date actuelle
 
         if (nom.isEmpty() || dateDebut == null || dateFin == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Champs incomplets");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez remplir tous les champs.");
-            alert.showAndWait();
+            // Afficher une alerte si des champs sont vides
+            showAlert(Alert.AlertType.ERROR, "Champs incomplets", "Veuillez remplir tous les champs.");
             return;
         }
 
         if (dateDebut.isBefore(dateActuelle)) {
-            // Date de début avant la date actuelle
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Date invalide");
-            alert.setHeaderText(null);
-            alert.setContentText("La date de début doit être postérieure à la date actuelle.");
-            alert.showAndWait();
+            // Afficher une alerte si la date de début est antérieure à la date actuelle
+            showAlert(Alert.AlertType.ERROR, "Date invalide", "La date de début doit être postérieure à la date actuelle.");
             return;
         }
 
         if (dateFin.isBefore(dateDebut)) {
-            // Date de fin avant la date de début
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Date invalide");
-            alert.setHeaderText(null);
-            alert.setContentText("La date de fin doit être postérieure à la date de début.");
-            alert.showAndWait();
+            // Afficher une alerte si la date de fin est antérieure à la date de début
+            showAlert(Alert.AlertType.ERROR, "Date invalide", "La date de fin doit être postérieure à la date de début.");
             return;
         }
 
         try {
+            // Vérifier si un événement avec les mêmes données existe déjà
+            if (servicesevent.existeEvent(nom, Date.valueOf(dateDebut), Date.valueOf(dateFin))) {
+                showAlert(Alert.AlertType.ERROR, "Événement déjà existant", "Un événement avec les mêmes données existe déjà.");
+                return;
+            }
+
+            // Ajouter l'événement si tout est valide et unique
             servicesevent.ajouter(new event(nom, Date.valueOf(dateDebut), Date.valueOf(dateFin)));
             tf_nom.clear();
             tf_datedebut.setValue(null);
@@ -87,6 +83,15 @@ public class gerer_evenementController {
             e.printStackTrace();
         }
     }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
 
     @FXML
     void Retour_pageaccueil(ActionEvent event) {
