@@ -1,4 +1,4 @@
-package Test;
+package tests;
 
 import services.servicesreservation;
 import entities.reservation;

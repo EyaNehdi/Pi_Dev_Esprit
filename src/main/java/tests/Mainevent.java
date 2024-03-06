@@ -1,8 +1,6 @@
-package Test;
+package tests;
 
 import entities.event;
-import javafx.application.Application;
-import javafx.stage.Stage;
 import services.servicesevent;
 import java.sql.Date;
 import java.sql.SQLException;

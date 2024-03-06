@@ -1,4 +1,4 @@
-package controller;
+package controllers;
 
 import entities.event;
 import javafx.collections.FXCollections;
@@ -21,16 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.Node;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.util.Callback;
-import services.servicesevent;
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.time.format.DateTimeFormatter;
 

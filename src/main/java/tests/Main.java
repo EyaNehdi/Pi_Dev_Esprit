@@ -1,5 +1,5 @@
-package Test;
-import Utils.MyDatabase;
+package tests;
+import utils.MyDatabase;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

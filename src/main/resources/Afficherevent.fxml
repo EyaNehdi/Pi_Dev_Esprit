@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AffichereventController">
+<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AffichereventController">
    <children>
       <TableView fx:id="tv_event" layoutX="249.0" layoutY="77.0" prefHeight="186.0" prefWidth="489.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 30;">
         <columns>

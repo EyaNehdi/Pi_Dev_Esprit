@@ -1,17 +1,10 @@
-package controller;
+package controllers;
 
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 
-import entities.event;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

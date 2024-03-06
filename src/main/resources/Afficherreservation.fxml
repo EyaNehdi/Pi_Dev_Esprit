@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficherreservationcontroller">
+<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Afficherreservationcontroller">
    <children>
       <TableView fx:id="tv_reservation" layoutX="251.0" layoutY="79.0" prefHeight="202.0" prefWidth="418.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 30;">
         <columns>

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gerer_evenementController">
+<AnchorPane prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.gerer_evenementController">
    <children>
       <TextField fx:id="tf_nom" layoutX="486.0" layoutY="192.0" prefHeight="32.0" prefWidth="175.0" />
       <Text fill="#3498db" layoutX="267.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom_evenement">
