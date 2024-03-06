@@ -24,9 +24,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javafx.beans.value.ChangeListener;
@@ -365,5 +365,26 @@ public class afficherformationcontrollers {
     }
 
     public void Voir_Cours(ActionEvent actionEvent) {
+    }
+
+
+    public List<formation> triEmail() throws SQLException {
+        List<formation> list1 = new ArrayList<>();
+        List<formation> list2 = Serviceformation.afficher();
+
+        list1 = list2.stream().sorted(Comparator.comparing(formation::getNom)).collect(Collectors.toList());
+        return list1;
+    }
+
+    @FXML
+    private void trie() throws SQLException {
+        // Assuming "nom" and "date" are TableColumn instances in your FXML file
+        col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        List<formation> formations = triEmail();
+        ObservableList<formation> observableFormationsList = FXCollections.observableArrayList(formations);
+
+        tv_formation.setItems(observableFormationsList);
     }
 }
