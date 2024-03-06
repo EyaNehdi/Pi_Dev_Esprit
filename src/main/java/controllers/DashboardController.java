@@ -45,6 +45,8 @@ public class DashboardController {
     private TextField tf_formations;
     @FXML
     private Button btnEvent;
+    @FXML
+    private Button btnEquipement;
     public void Voir_Cours() {
         Stage stage = (Stage) btnCours.getScene().getWindow();
         SceneChanger.changerScene("/AjouterCours.fxml", stage);
@@ -52,5 +54,9 @@ public class DashboardController {
     public void Voir_Event() {
         Stage stage = (Stage) btnEvent.getScene().getWindow();
         SceneChanger.changerScene("/gerer_evenement.fxml", stage);
+    }
+    public void Voir_Equipement() {
+        Stage stage = (Stage) btnEquipement.getScene().getWindow();
+        SceneChanger.changerScene("/ajouterEquipement.fxml", stage);
     }
 }

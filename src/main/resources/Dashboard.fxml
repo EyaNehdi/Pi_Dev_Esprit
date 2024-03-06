@@ -31,7 +31,7 @@
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                        <Button fx:id="btnEquipement" mnemonicParsing="false" onAction="#Voir_Equipement" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
                             <font>
                                 <Font name="Comic Sans MS" size="20.0" />
                             </font>
