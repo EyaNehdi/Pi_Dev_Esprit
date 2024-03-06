@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane cache="true" cacheHint="ROTATE" prefHeight="458.0" prefWidth="697.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+
+<VBox alignment="CENTER" spacing="10">
+    <!-- Logo and Title -->
+    <StackPane />
+
+    <!-- Forgot Password and Create Account links -->
+    <HBox spacing="10" />
+</VBox>
+    <AnchorPane cache="true" layoutX="171.0" layoutY="41.0" prefHeight="376.0" prefWidth="353.0" style="-fx-background-color: #F0F8FF; -fx-background-radius: 15;">
+        <children>
+         <ImageView fitHeight="318.0" fitWidth="316.0" layoutX="25.0" layoutY="-130.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Assets/logo.png" />
+            </image>
+         </ImageView>
+            <!-- Email field -->
+            <TextField fx:id="email" layoutX="51.0" layoutY="129.0" prefHeight="26.0" prefWidth="250.0" promptText="Email" />
+      
+             <!-- Sign In Text -->
+       <Text fill="#c4591f" layoutX="135.0" layoutY="72.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="LOGIN" textAlignment="CENTER" wrappingWidth="82.39999999999986" />
+        <Hyperlink fx:id="reset" layoutX="198.0" layoutY="321.0" onAction="#changerpasse" text="Reset Password" textFill="#b46028" />
+         <Label layoutX="51.0" layoutY="104.0" prefHeight="18.0" prefWidth="50.0" text="E-MAIL" textAlignment="CENTER" />
+         <Label layoutX="51.0" layoutY="162.0" prefHeight="18.0" prefWidth="82.0" text="PASSWORD" textAlignment="JUSTIFY" />
+         <Label layoutX="47.0" layoutY="77.0" prefHeight="18.0" prefWidth="257.0" text="Enter your credentials to access your account" textAlignment="CENTER" textFill="#a49f9f" />
+         <Button fx:id="login" layoutX="50.0" layoutY="254.0" mnemonicParsing="false" onAction="#loginonaction" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: derive(#FFA500, 20%);" text="LOGIN" textFill="#faf7f5" textOverrun="CLIP">
+            <effect>
+               <DropShadow>
+                  <color>
+                     <Color red="0.4526315927505493" green="0.38725146651268005" blue="0.38725146651268005" />
+                  </color>
+               </DropShadow>
+            </effect></Button>
+         <Label layoutX="76.0" layoutY="324.0" prefHeight="18.0" prefWidth="184.0" text="Forgot your password?" textAlignment="CENTER" textFill="#a49f9f" />
+         <PasswordField fx:id="pass" layoutX="51.0" layoutY="188.0" prefHeight="26.0" prefWidth="250.0" promptText="Password" />
+         <Label fx:id="loginmess" alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="224.0" prefHeight="18.0" prefWidth="257.0" textAlignment="CENTER" textFill="#a96e37" />
+         <Button fx:id="cancel" layoutX="50.0" layoutY="294.0" mnemonicParsing="false" onAction="#cancelonaction" prefHeight="26.0" prefWidth="250.0" style="-fx-background-color: derive(#FFA500, 20%);" text="EXIT" textFill="#fcf6f6" textOverrun="CLIP">
+            <effect>
+               <DropShadow>
+                  <color>
+                     <Color red="0.4526315927505493" green="0.38725146651268005" blue="0.38725146651268005" />
+                  </color>
+               </DropShadow>
+            </effect>
+         </Button>
+        </children>
+        <opaqueInsets>
+            <Insets />
+        </opaqueInsets>
+        <effect>
+            <DropShadow />
+        </effect>
+    </AnchorPane>
+  <Hyperlink fx:id="create" layoutX="372.0" layoutY="421.0" onAction="#create" text="Create Account" textFill="#150101" />
+   <Label layoutX="223.0" layoutY="424.0" prefHeight="18.0" prefWidth="184.0" text="You don't have an account?" textAlignment="CENTER" textFill="#f2eded" />
+
+</AnchorPane>

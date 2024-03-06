@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Motdepasseoublier">
+   <children>
+      <TextField fx:id="emailtf" layoutX="209.0" layoutY="116.0" promptText="email" />
+      <Button layoutX="217.0" layoutY="294.0" mnemonicParsing="false" onAction="#sendmail" text="send mail" />
+      <TextField fx:id="codetf" layoutX="209.0" layoutY="160.0" promptText="code" />
+      <TextField fx:id="passwordtf" layoutX="209.0" layoutY="207.0" promptText="password" />
+      <TextField fx:id="confirmepasswordtf" layoutX="210.0" layoutY="248.0" promptText="confirmer password" />
+      <Button layoutX="300.0" layoutY="294.0" mnemonicParsing="false" onAction="#confirmer" text="Confirmer" />
+   </children>
+</AnchorPane>
