@@ -70,7 +70,7 @@ public class ajoutcertificatcpntrollers {
             // Add your certificate addition logic here
             servicescertificat serviceCertificat = new servicescertificat();
             try {
-                serviceCertificat.ajouter(new certificat(nomeleve, nomformateur, nom, selectedDate.toString()));
+                serviceCertificat.add(new certificat(nomeleve, nomformateur, nom, selectedDate.toString()));
                 showSuccessAlert("Certificate added successfully");
             } catch (SQLException e) {
                 showErrorAlert("Error adding certificate: " + e.getMessage());

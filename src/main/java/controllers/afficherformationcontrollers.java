@@ -24,9 +24,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.util.stream.Collectors;
-
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Optional;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javafx.beans.value.ChangeListener;
@@ -104,7 +104,7 @@ public class afficherformationcontrollers {
         String rechercheText = fxrecherche.getText().trim().toLowerCase();
 
         try {
-            ObservableList<formation> formations = FXCollections.observableArrayList(Serviceformation.afficher());
+            ObservableList<formation> formations = FXCollections.observableArrayList(Serviceformation.readAll());
 
 
             if (rechercheText.isEmpty()) {
@@ -138,11 +138,11 @@ public class afficherformationcontrollers {
             if (modificationConfirme) {
                 try {
                     // Mettre à jour la formation dans la base de données
-                    Serviceformation.modifier(selectedFormation);
+                    Serviceformation.update(selectedFormation);
 
                     // Rafraîchir la TableView
                     //ObservableList<formation> formations = DataHolder.getFormationsData();
-                    ObservableList<formation> formations = FXCollections.observableList(Serviceformation.afficher());
+                    ObservableList<formation> formations = FXCollections.observableList(Serviceformation.readAll());
                     tv_formation.setItems(formations);
                 } catch (SQLException e) {
                     showAlert(Alert.AlertType.ERROR, "Erreur", "Erreur lors de la modification de la formation : " + e.getMessage());
@@ -227,7 +227,7 @@ public class afficherformationcontrollers {
     void initialize() {
         try {
             // Load formations from the service
-            ObservableList<formation> formations = FXCollections.observableList(Serviceformation.afficher());
+            ObservableList<formation> formations = FXCollections.observableList(Serviceformation.readAll());
 
             // Set the items for TableView
             tv_formation.setItems(formations);
@@ -265,7 +265,7 @@ public class afficherformationcontrollers {
 
         if (selectedFormation != null) {
             try {
-                Serviceformation.supprimer(selectedFormation.getId());
+                Serviceformation.delete(selectedFormation);
                 tv_formation.getItems().remove(selectedFormation);
                 showAlert(Alert.AlertType.INFORMATION, "Formation Supprimée", "La formation a été supprimée avec succès.");
             } catch (SQLException e) {
@@ -365,26 +365,5 @@ public class afficherformationcontrollers {
     }
 
     public void Voir_Cours(ActionEvent actionEvent) {
-    }
-
-
-    public List<formation> triEmail() throws SQLException {
-        List<formation> list1 = new ArrayList<>();
-        List<formation> list2 = Serviceformation.afficher();
-
-        list1 = list2.stream().sorted(Comparator.comparing(formation::getNom)).collect(Collectors.toList());
-        return list1;
-    }
-
-    @FXML
-    private void trie() throws SQLException {
-        // Assuming "nom" and "date" are TableColumn instances in your FXML file
-        col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        col_date.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-        List<formation> formations = triEmail();
-        ObservableList<formation> observableFormationsList = FXCollections.observableArrayList(formations);
-
-        tv_formation.setItems(observableFormationsList);
     }
 }

@@ -50,6 +50,8 @@ public class DashboardController {
 
     @FXML
     private Button btnAbonnement;
+    @FXML
+    private Button btnFormation;
     public void Voir_Cours() {
         Stage stage = (Stage) btnCours.getScene().getWindow();
         SceneChanger.changerScene("/AjouterCours.fxml", stage);
@@ -65,5 +67,9 @@ public class DashboardController {
     public void Voir_Abonnement() {
         Stage stage = (Stage) btnAbonnement.getScene().getWindow();
         SceneChanger.changerScene("/ajouterAbonnement.fxml", stage);
+    }
+    public void Voir_Formation() {
+        Stage stage = (Stage) btnFormation.getScene().getWindow();
+        SceneChanger.changerScene("/ajoutformation.fxml", stage);
     }
 }

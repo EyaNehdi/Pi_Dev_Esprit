@@ -5,9 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import services.AbonnementService;
 import javafx.stage.Stage;
-import utils.SMSSENDER;
+import services.AbonnementService;
+
 
 import java.sql.SQLException;
 
@@ -54,10 +54,10 @@ public class AjouterAbonnement {
 
 
                 // Appeler la méthode SMSSender de SmsSender avec le numéro de téléphone récupéré
-                SMSSENDER.sendSMS(tel1, "Bienvenue  "+nom+ "! Merci pour votre paiement en ligne !\nVotre renouvellement est maintenant actif.\nProfitez_enpleinement!\nCORDIALEMENT,\nEDUACT");
+              //  SMSSENDER.sendSMS(tel1, "Bienvenue  "+nom+ "! Merci pour votre paiement en ligne !\nVotre renouvellement est maintenant actif.\nProfitez_enpleinement!\nCORDIALEMENT,\nEDUACT");
 
 
-                Stage stage = (Stage) btn_Ajouter.getScene().getWindow();
+               Stage stage = (Stage) btn_Ajouter.getScene().getWindow();
                 stage.close();
 
             } catch (NumberFormatException e) {

@@ -218,7 +218,7 @@ public class affichercertificatcontrollers {
             try {
                 // Utilisation du serviceCertificat pour supprimer le certificat
                 servicescertificat serviceCertificat = new servicescertificat();
-                serviceCertificat.supprimer(selectedCertificat.getId());
+                serviceCertificat.delete(selectedCertificat);
                 tf_tableview.getItems().remove(selectedCertificat);
                 showAlert(Alert.AlertType.INFORMATION, "Certificat Supprimé", "Le certificat a été supprimé avec succès.");
             } catch (SQLException e) {
@@ -233,7 +233,7 @@ public class affichercertificatcontrollers {
     void initialize() {
         try {
             servicescertificat serviceCertificat = new servicescertificat();
-            ObservableList<certificat> certificats = FXCollections.observableList(serviceCertificat.afficher());
+            ObservableList<certificat> certificats = FXCollections.observableList(serviceCertificat.readAll());
 
             // Utilisation des noms corrects des propriétés de la classe certificat
             tf_cert.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -267,10 +267,10 @@ public class affichercertificatcontrollers {
                 try {
                     // Mettez à jour le certificat dans la base de données
                     servicescertificat serviceCertificat = new servicescertificat();
-                    serviceCertificat.modifier(selectedCertificat);
+                    serviceCertificat.update(selectedCertificat);
 
                     // Rafraîchir la TableView
-                    ObservableList<certificat> certificats = FXCollections.observableList(serviceCertificat.afficher());
+                    ObservableList<certificat> certificats = FXCollections.observableList(serviceCertificat.readAll());
                     tf_tableview.setItems(certificats);
 
                     showAlert(Alert.AlertType.INFORMATION, "Certificat Modifié", "Le certificat a été modifié avec succès.");

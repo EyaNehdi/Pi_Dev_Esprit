@@ -71,7 +71,7 @@ public class ajouterformationcontrollers {
                     return;
                 }
 
-                Serviceformation.ajouter(new formation(nom, date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
+                Serviceformation.add(new formation(nom, date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))));
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Formation ajoutée");
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

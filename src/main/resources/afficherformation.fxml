@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="895.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.afficherformationcontrollers">
+    <children>
+        <Pane layoutX="259.0" layoutY="25.0" prefHeight="649.0" prefWidth="840.0" style="-fx-background-color: bleu;" AnchorPane.bottomAnchor="-25.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="-12.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <Pane layoutX="76.0" layoutY="106.0" />
+
+                <TableView fx:id="tv_formation" layoutX="6.0" layoutY="93.0" prefHeight="318.0" prefWidth="370.0" style="-fx-background-color: gris;">
+                    <columns>
+                        <TableColumn fx:id="col_nom" prefWidth="166.0" text="Nom formation" />
+                        <TableColumn fx:id="col_date" prefWidth="202.0" text="Date de la formation" />
+                    </columns>
+                </TableView>
+
+                <Button fx:id="btnRetour" layoutX="6.0" layoutY="20.0" onAction="#retournerAjoutFormation" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Retour" textFill="WHITE" />
+                <Button fx:id="tf_mod" layoutX="465.0" layoutY="283.0" mnemonicParsing="false" onAction="#modifier" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="modifier" textFill="WHITE" />
+                <Button fx:id="tf_sup" layoutX="466.0" layoutY="348.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="42.0" prefWidth="105.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="supprimer" textFill="WHITE" />
+                <ImageView fitHeight="65.0" fitWidth="217.0" layoutX="453.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@image/a.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="195.0" fitWidth="235.0" layoutX="400.0" layoutY="62.0">
+                    <image>
+                        <Image url="@image/tt.png" />
+                    </image>
+                </ImageView>
+                <TextField fx:id="fxrecherche" layoutX="215.0" layoutY="8.0" onAction="#chercher" promptText="chercher formation" style="-fx-background-radius: 15;" />
+                <Button fx:id="pdf" layoutX="73.0" layoutY="476.0" mnemonicParsing="false" onAction="#telecharger" prefHeight="25.0" prefWidth="236.0" text="cliquer ici pour telecharger le fichier pdf" />
+                <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="364.0" layoutY="8.0">
+                    <image>
+                        <Image url="@image/icons8-search-48%20(1).png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="57.0" layoutY="20.0">
+                    <image>
+                        <Image url="@image/icons8-return-48.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="407.0" layoutY="8.0">
+                    <image>
+                        <Image url="@image/icons8-notification-64.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="excel" layoutX="73.0" layoutY="442.0" mnemonicParsing="false" onAction="#Excel" text="cliquer ici pour telecharger le fichier excel" />
+
+
+            </children>
+        </Pane>
+      <AnchorPane layoutX="-9.0" layoutY="-1.0" prefHeight="563.0" prefWidth="231.0" style="-fx-background-color: orange;">
+         <children>
+            <VBox layoutX="12.0" layoutY="242.0" prefHeight="280.0" prefWidth="216.0" style="-fx-background-color: orange;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Voir_Cours" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Cours" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Evenements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Formations" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Equipements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#Voir_Abonnements" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Pane layoutX="16.0" layoutY="154.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3498DB; -fx-background-radius: 20;">
+               <children>
+                  <Label fx:id="lb_Accueil" layoutX="48.0" layoutY="9.0" prefHeight="33.0" prefWidth="104.0" text="Accueil" textFill="WHITE">
+                     <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+    </children>
+</AnchorPane>
