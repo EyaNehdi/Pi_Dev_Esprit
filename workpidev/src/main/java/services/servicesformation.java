@@ -1,7 +1,7 @@
 package services;
 
 import entities.formation;
-import Utils.MyDatabase;
+import utils.MyDatabase;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 

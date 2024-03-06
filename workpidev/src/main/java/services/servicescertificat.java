@@ -1,7 +1,7 @@
 package services;
 
 import entities.certificat;
-import Utils.MyDatabase;
+import utils.MyDatabase;
 
 import java.sql.*;
 import java.util.ArrayList;

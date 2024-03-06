@@ -33,12 +33,12 @@
             <ImageView fitHeight="17.0" fitWidth="104.0" layoutX="511.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="41.0" fitWidth="174.0" layoutX="389.0" layoutY="-6.0">
                <image>
-                  <Image url="@Assets/a.png" />
+                  <Image url="@image/a.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="222.0" fitWidth="262.0" layoutX="372.0" layoutY="188.0">
                <image>
-                  <Image url="@Assets/aa-removebg-preview.png" />
+                  <Image url="@image/aa-removebg-preview.png" />
                </image>
             </ImageView>
             <Text fill="#2f1486" layoutX="79.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom formation" />

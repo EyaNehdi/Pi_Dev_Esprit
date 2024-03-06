@@ -40,17 +40,17 @@
             </Text>
             <ImageView fitHeight="339.0" fitWidth="377.0" layoutX="20.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Assets/c.png" />
+                  <Image url="@image/c.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="71.0" fitWidth="310.0" layoutX="320.0" layoutY="360.0">
                <image>
-                  <Image url="@Assets/ee.png" />
+                  <Image url="@image/ee.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="72.0" fitWidth="189.0" layoutX="452.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Assets/a.png" />
+                  <Image url="@image/a.png" />
                </image>
             </ImageView>
             <TextField fx:id="tfnom" layoutX="451.0" layoutY="128.0" prefHeight="20.0" prefWidth="153.0" promptText="entrer le nom du formation" />

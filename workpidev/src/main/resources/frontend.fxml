@@ -53,24 +53,26 @@
                   </Label>
                </children>
             </Pane>
+            
          </children>
       </AnchorPane>
       <Pane layoutX="256.0" layoutY="-154.0" prefHeight="288.0" prefWidth="182.0" rotate="-32.9" style="-fx-background-color: orange; -fx-background-radius: 70;" />
       <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="681.0" layoutY="14.0">
          <image>
-            <Image url="@Assets/das1.png" />
+            <Image url="@image/das1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="334.0" fitWidth="223.0" layoutX="618.0" layoutY="146.0">
          <image>
-            <Image url="@Assets/45169959afdbaebd0a2a7e1871228cde-removebg-preview.png" />
+            <Image url="@image/45169959afdbaebd0a2a7e1871228cde-removebg-preview.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tvformation" layoutX="326.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="frontendTableView" layoutX="269.0" layoutY="190.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="116.0" text="nom formation" />
-          <TableColumn prefWidth="83.0" text="date" />
+          <TableColumn fx:id="frontendColNom" prefWidth="75.0" text="nom" />
+          <TableColumn fx:id="frontendColDate" prefWidth="75.0" text="date" />
         </columns>
       </TableView>
+
    </children>
 </AnchorPane>

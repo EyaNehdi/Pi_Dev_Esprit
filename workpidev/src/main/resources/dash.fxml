@@ -65,7 +65,7 @@
                 </TextField>
                 <ImageView fitHeight="50.0" fitWidth="65.0">
                     <image>
-                        <Image url="@Assets/das4.png" />
+                        <Image url="@image/das4.png" />
                     </image>
                 </ImageView>
             </children>
@@ -79,7 +79,7 @@
                 </TextField>
                 <ImageView fitHeight="44.0" fitWidth="76.0" layoutX="10.0" layoutY="10.0">
                     <image>
-                        <Image url="@Assets/das6.png" />
+                        <Image url="@image/das6.png" />
                     </image>
                 </ImageView>
             </children>
@@ -93,7 +93,7 @@
                 </TextField>
                 <ImageView fitHeight="50.0" fitWidth="65.0" layoutX="13.0">
                     <image>
-                        <Image url="@Assets/das5.png" />
+                        <Image url="@image/das5.png" />
                     </image>
                 </ImageView>
             </children>
@@ -107,7 +107,7 @@
                 </TextField>
                 <ImageView fitHeight="50.0" fitWidth="76.0" layoutX="14.0" layoutY="10.0">
                     <image>
-                        <Image url="@Assets/das3.png" />
+                        <Image url="@image/das3.png" />
                     </image>
                 </ImageView>
             </children>
@@ -121,14 +121,14 @@
                 </TextField>
                 <ImageView fitHeight="50.0" fitWidth="76.0" layoutX="13.0" layoutY="10.0">
                     <image>
-                        <Image url="@Assets/dash2.png" />
+                        <Image url="@image/dash2.png" />
                     </image>
                 </ImageView>
             </children>
         </Pane>
         <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="681.0" layoutY="14.0">
             <image>
-                <Image url="@Assets/das1.png" />
+                <Image url="@image/das1.png" />
             </image>
         </ImageView>
     </children>

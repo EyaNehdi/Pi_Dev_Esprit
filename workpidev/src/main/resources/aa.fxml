@@ -97,12 +97,12 @@
                 <Button fx:id="modcer" layoutX="631.0" layoutY="501.0" mnemonicParsing="false" onAction="#modifiercer" prefHeight="34.0" prefWidth="85.0" style="-fx-background-color: blue; -fx-background-radius: 8;" text="Modifier" textFill="WHITE" />
                 <ImageView fitHeight="61.0" fitWidth="163.0" layoutX="511.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Assets/a.png" />
+                        <Image url="@image/a.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="113.0" fitWidth="494.0" layoutX="26.0" layoutY="-16.0">
                     <image>
-                        <Image url="@Assets/ll.png" />
+                        <Image url="@image/ll.png" />
                     </image>
                 </ImageView>
             </children>

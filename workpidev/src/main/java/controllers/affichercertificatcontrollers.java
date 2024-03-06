@@ -197,6 +197,7 @@ public class affichercertificatcontrollers {
                             "</body>\n" +
                             "</html>";
 
+
             // Créer un fichier HTML temporaire
             File tempHtmlFile = File.createTempFile("certificate", ".html");
             FileUtils.writeStringToFile(tempHtmlFile, htmlContent, StandardCharsets.UTF_8);

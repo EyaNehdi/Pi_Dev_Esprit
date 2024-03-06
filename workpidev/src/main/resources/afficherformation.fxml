@@ -31,29 +31,29 @@
                 <Button fx:id="tf_sup" layoutX="466.0" layoutY="348.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="42.0" prefWidth="105.0" style="-fx-background-radius: 8; -fx-background-color: blue;" text="supprimer" textFill="WHITE" />
                 <ImageView fitHeight="65.0" fitWidth="217.0" layoutX="453.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Assets/a.png" />
+                        <Image url="@image/a.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="195.0" fitWidth="235.0" layoutX="400.0" layoutY="62.0">
                     <image>
-                        <Image url="@Assets/tt.png" />
+                        <Image url="@image/tt.png" />
                     </image>
                 </ImageView>
                 <TextField fx:id="fxrecherche" layoutX="215.0" layoutY="8.0" onAction="#chercher" promptText="chercher formation" style="-fx-background-radius: 15;" />
                 <Button fx:id="pdf" layoutX="73.0" layoutY="476.0" mnemonicParsing="false" onAction="#telecharger" prefHeight="25.0" prefWidth="236.0" text="cliquer ici pour telecharger le fichier pdf" />
                 <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="364.0" layoutY="8.0">
                     <image>
-                        <Image url="@Assets/icons8-search-48%20(1).png" />
+                        <Image url="@image/icons8-search-48%20(1).png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="25.0" fitWidth="36.0" layoutX="57.0" layoutY="20.0">
                     <image>
-                        <Image url="@Assets/icons8-return-48.png" />
+                        <Image url="@image/icons8-return-48.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="407.0" layoutY="8.0">
                     <image>
-                        <Image url="@Assets/icons8-notification-64.png" />
+                        <Image url="@image/icons8-notification-64.png" />
                     </image>
                 </ImageView>
                 <Button fx:id="excel" layoutX="73.0" layoutY="442.0" mnemonicParsing="false" onAction="#Excel" text="cliquer ici pour telecharger le fichier excel" />
