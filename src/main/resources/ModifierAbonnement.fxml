@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierAbonnement">
+    <children>
+        <Pane layoutX="-1.0" prefHeight="649.0" prefWidth="1074.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <TextField fx:id="nomf" layoutX="490.0" layoutY="265.0" />
+                <TextField fx:id="prenomf" layoutX="490.0" layoutY="318.0" />
+                <TextField fx:id="mailf" layoutX="490.0" layoutY="377.0" />
+                <TextField fx:id="numf" layoutX="490.0" layoutY="437.0" />
+                <Text layoutX="390.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prenom" />
+                <Text layoutX="390.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
+                <Text layoutX="390.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="num" />
+                <Text layoutX="390.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+                <Button fx:id="btn_Modifier" layoutX="496.0" layoutY="513.0" mnemonicParsing="false" onAction="#ModifierAbonnement" text="modifier" />
+                <Button layoutX="589.0" layoutY="513.0" mnemonicParsing="false" text="annuler" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

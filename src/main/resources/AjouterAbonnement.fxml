@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterAbonnement">
+   <children>
+      <Pane layoutX="-2.0" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+            <TextField fx:id="nomf" layoutX="556.0" layoutY="198.0" />
+            <TextField fx:id="prenomf" layoutX="556.0" layoutY="251.0" />
+            <TextField fx:id="mailf" layoutX="556.0" layoutY="310.0" />
+            <TextField fx:id="numf" layoutX="556.0" layoutY="370.0" />
+            <Text layoutX="456.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prenom" />
+            <Text layoutX="456.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mail" />
+            <Text layoutX="456.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="num" />
+            <Text layoutX="456.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+            <Button fx:id="btn_Ajouter" layoutX="556.0" layoutY="446.0" mnemonicParsing="false" onAction="#Ajouterabonnement" text="ajouter" />
+            <Button layoutX="649.0" layoutY="446.0" mnemonicParsing="false" text="annuler" />
+            <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="605.0" layoutY="39.0">
+               <image>
+                  <Image url="@image/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -54,6 +54,18 @@
             <artifactId>javafx-controls</artifactId>
             <version>20.0.2</version>
         </dependency>
+        <!-- Twilio Java library -->
+        <dependency>
+            <groupId>com.twilio.sdk</groupId>
+            <artifactId>twilio</artifactId>
+            <version>8.21.0</version> <!-- Use the latest version -->
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>16</version>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins> <plugin>
