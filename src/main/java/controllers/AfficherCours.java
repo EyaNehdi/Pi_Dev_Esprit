@@ -1,28 +1,45 @@
 package controllers;
 
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import  java.util.List;
+import java.util.stream.Collectors;
 
 import entities.Cours;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import services.CoursService;
-import controllers.AjouterCours;
+import utils.MyDatabase;
 
-public class AfficherCours {
+
+
+
+public class AfficherCours extends Component {
 CoursService serviceCours = new CoursService();
     private int idCu;
     @FXML
@@ -43,6 +60,34 @@ CoursService serviceCours = new CoursService();
     private Button btnSupprimer;
     private FilteredList<Cours> filteredCours;
 
+    @FXML
+    private Button btnPDF;
+    Connection connection;
+    @FXML
+    private Button btnExcel;
+    Cours cours = new Cours();
+    public List<Cours> triEmail() throws SQLException {
+
+        List<Cours> list1 = new ArrayList<>();
+        List<Cours> list2 = serviceCours.readAll();
+
+        list1 = list2.stream().sorted((o1, o2) -> o1.getTitre().compareTo(o2.getTitre())).collect(Collectors.toList());
+        return list1;
+
+    }
+    @FXML
+    private void Trie() throws SQLException {
+        CoursService coursService = new CoursService();
+        Cours cours = new Cours();
+        List<Cours> cours1 = triEmail();
+        ObservableList<Cours> observableCoursList = FXCollections.observableArrayList(cours1);
+
+        titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        contenu.setCellValueFactory(new PropertyValueFactory<>("contenu"));
+
+        tv_cours.setItems(observableCoursList);
+
+    }
     @FXML
     void initialize() {
         try {
@@ -149,6 +194,78 @@ CoursService serviceCours = new CoursService();
     @FXML
     private TextField tf_recherche;
 
+    @FXML
+    private void exporterPDF(ActionEvent event) {
+        System.out.println("hello");
+        try {
+            ensureConnectionInitialized();  // Assurez-vous que la connexion est initialisée
 
+            if (connection != null) {
+                JasperDesign jDesign = JRXmlLoader.load("C:\\Users\\Eyane\\WorkshopProjet\\src\\main\\resources\\report.jrxml");
+                JasperReport jReport = JasperCompileManager.compileReport(jDesign);
+                JasperPrint jPrint = JasperFillManager.fillReport(jReport, null, connection);
 
+                JasperViewer viewer = new JasperViewer(jPrint, false);
+                viewer.setTitle("Liste des Cours");
+                viewer.show();
+                System.out.println("hello");
+            } else {
+                System.out.println("La connexion à la base de données est null.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void ensureConnectionInitialized() {
+        if (connection == null) {
+            initializeConnection();
+        }
+    }
+    private void initializeConnection() {
+        try {
+            MyDatabase myDatabase = MyDatabase.getInstance();
+            connection = myDatabase.getConnection();
+
+            if (connection != null) {
+                System.out.println("Connection établie");
+            } else {
+                System.err.println("La connexion à la base de données a échoué.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Erreur lors de l'établissement de la connexion à la base de données.");
+        }
+    }
+    @FXML
+    private void ExportExcel(ActionEvent event) {
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Liste des Cours");
+
+            // En-tête
+            Row headerRow = sheet.createRow(0);
+            headerRow.createCell(0).setCellValue("Titre");
+            headerRow.createCell(1).setCellValue("Contenu");
+
+            // Données
+            ObservableList<Cours> coursList = FXCollections.observableList(serviceCours.readAll());
+            for (int i = 0; i < coursList.size(); i++) {
+                Row row = sheet.createRow(i + 1);
+                row.createCell(0).setCellValue(coursList.get(i).getTitre());
+                row.createCell(1).setCellValue(coursList.get(i).getContenu());
+            }
+
+            // Sauvegarde du fichier
+            String fileName = "liste_cours.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+                workbook.write(fileOut);
+                fileOut.flush();
+            }
+
+            System.out.println("Export Excel réussi.");
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

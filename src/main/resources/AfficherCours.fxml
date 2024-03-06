@@ -104,6 +104,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <Button fx:id="btnPDF" layoutX="339.0" layoutY="580.0" mnemonicParsing="false" onAction="#exporterPDF" text="Export PDF" />
+            <Button fx:id="btnExcel" layoutX="483.0" layoutY="580.0" mnemonicParsing="false" onAction="#ExportExcel" text="Export Excel" />
+            <Button layoutX="586.0" layoutY="580.0" mnemonicParsing="false" onAction="#Trie" text="Trie par titre" />
             </children>
         </Pane>
     </children>

@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import services.CoursService;
 
 import java.sql.SQLException;
@@ -60,6 +62,15 @@ private Button btnQuizz;
         // Ajout du cours
         Cours cours = new Cours(titref.getText(), contenuf.getText());
         CoursService serviceCours = new CoursService();
+        boolean  oeuvreAdded = true;
+
+        if (oeuvreAdded) {
+            Notifications.create()
+                    .title("Notification Title")
+                    .text("cours  AJOUTEE")
+                    .hideAfter(Duration.seconds(9))
+                    .showInformation();
+        }
 
         try {
             serviceCours.add(cours);
