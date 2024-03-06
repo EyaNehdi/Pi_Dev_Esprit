@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherPacks">
+    <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox layoutX="12.0" layoutY="242.0" prefHeight="280.0" prefWidth="216.0" style="-fx-background-color: orange;">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Cours" textFill="#3498db">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnAbonnement" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                    <font>
+                        <Font name="Comic Sans MS" size="20.0" />
+                    </font>
+                </Button>
+
+            </children>
+        </VBox>
+    </AnchorPane>
+    <Pane layoutX="245.0" prefHeight="649.0" prefWidth="828.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="14.200000000000045" AnchorPane.topAnchor="0.0">
+        <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+        <Button fx:id="btnAjouter" layoutX="321.0" layoutY="506.0" mnemonicParsing="false" onAction="#Ajouter" text="ajouter" />
+        <Button fx:id="btnModifier" layoutX="388.0" layoutY="506.0" mnemonicParsing="false" onAction="#Modifier" text="modifier" />
+        <Button fx:id="btnSupprimer" layoutX="458.0" layoutY="506.0" mnemonicParsing="false" onAction="#delete" text="supprimer" />
+        <TableView fx:id="tv_packs" layoutX="127.0" layoutY="225.0" onMouseClicked="#mouseClicked" prefHeight="273.0" prefWidth="401.0">
+            <columns>
+                <TableColumn fx:id="id_packs" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+                <TableColumn fx:id="description" prefWidth="75.0" text="description" />
+                <TableColumn fx:id="prix" prefWidth="75.0" text="prix" />
+                <TableColumn fx:id="type" prefWidth="75.0" text="type" />
+            </columns>
+        </TableView>
+    </Pane>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+</AnchorPane>

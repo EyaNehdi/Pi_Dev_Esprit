@@ -4,7 +4,6 @@ import entities.Cours;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -19,23 +18,22 @@ import java.util.ResourceBundle;
 public class CoursUpdate implements Initializable {
 
     private int idCu;
+
     @FXML
     private TextArea contenuf;
 
     @FXML
     private TextField titref;
+
     @FXML
     private Button btnRetour;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
         LoadData();
     }
 
-
     public void LoadData() {
-
         CoursService us = new CoursService();
         try {
             Cours u = us.findById(this.idCu);
@@ -46,11 +44,6 @@ public class CoursUpdate implements Initializable {
                 if (u.getContenu() != null) {
                     contenuf.setText(u.getContenu());
                 }
-
-
-
-
-
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -62,17 +55,13 @@ public class CoursUpdate implements Initializable {
         this.LoadData();
         System.err.println("ena aaaaaa" + this.idCu);
         return this.idCu;
-
     }
+
     @FXML
     private void updateData(ActionEvent event) {
-        // Check if any field is empty
-        if (titref.getText().isEmpty() ||
-                contenuf.getText().isEmpty() ) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields!");
-            alert.show();
+        // Validation de saisie
+        if (titref.getText().isEmpty() || contenuf.getText().isEmpty()) {
+            afficherAlerte("Veuillez remplir tous les champs!");
             return;
         }
 
@@ -81,35 +70,43 @@ public class CoursUpdate implements Initializable {
             CoursService us = new CoursService();
             Cours coursToUpdate = us.findById(idCu);
 
-            // Update user data
+            // Vérification d'unicité
+            if (!coursToUpdate.getTitre().equals(titref.getText()) && coursExisteDeja(titref.getText())) {
+                afficherAlerte("Un cours avec ce titre existe déjà.");
+                return;
+            }
+
+            // Mise à jour des données du cours
             coursToUpdate.setTitre(titref.getText());
             coursToUpdate.setContenu(contenuf.getText());
 
-            // Call the modifier method to update the user
+            // Appel de la méthode de modification pour mettre à jour le cours
             us.update(coursToUpdate);
 
-            // Show success message
-            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-            successAlert.setHeaderText(null);
-            successAlert.setContentText("Modification réussie !!");
-            successAlert.show();
-
+            // Afficher un message de réussite
+            afficherAlerte("Modification réussie !!");
 
         } catch (SQLException ex) {
-            ex.printStackTrace(); // Handle exception appropriately
-            // Show error message
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText(null);
-            errorAlert.setContentText("An error occurred while updating user data!");
-            errorAlert.show();
+            ex.printStackTrace(); // Gérer l'exception de manière appropriée
+            // Afficher un message d'erreur
+            afficherAlerte("Une erreur s'est produite lors de la mise à jour des données du cours !");
         }
     }
 
-    public void Retour()
-    {
+    public void Retour() {
         Stage stage = (Stage) btnRetour.getScene().getWindow();
         SceneChanger.changerScene("/AfficherCours.fxml", stage);
     }
 
+    private boolean coursExisteDeja(String titre) throws SQLException {
+        CoursService serviceCours = new CoursService();
+        return serviceCours.readAll().stream().anyMatch(c -> c.getTitre().equals(titre));
+    }
 
+    private void afficherAlerte(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherAbonnement">
+    <children>
+        <AnchorPane prefHeight="519.0" prefWidth="262.0" style="-fx-background-color: orange;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <VBox layoutX="12.0" layoutY="242.0" prefHeight="280.0" prefWidth="216.0" style="-fx-background-color: orange;">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Cours" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Evénements" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Formations" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Equipements" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnAbonnement" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Abonnements" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btnPacks" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-radius: 20; -fx-background-color: white; -fx-border-color: orange;" text="Packs" textFill="#3498db">
+                            <font>
+                                <Font name="Comic Sans MS" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+                <Pane layoutY="86.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #3498DB; -fx-background-radius: 5;" />
+            </children></AnchorPane>
+        <Pane layoutX="245.0" prefHeight="649.0" prefWidth="828.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="245.0" AnchorPane.rightAnchor="14.199999999999818" AnchorPane.topAnchor="0.0">
+            <children>
+                <Pane layoutX="-29.0" layoutY="-188.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+            <TableView fx:id="tv_abonnement" layoutX="23.0" layoutY="225.0" onMouseClicked="#mouseClicked" prefHeight="273.0" prefWidth="505.0">
+              <columns>
+                  <TableColumn fx:id="id_abonnement" editable="false" prefWidth="75.0" sortable="false" text="id_abonnement" visible="false" />
+                <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+                <TableColumn fx:id="prenom" prefWidth="75.0" text="prenom" />
+                  <TableColumn fx:id="mail" prefWidth="75.0" text="mail" />
+                  <TableColumn fx:id="num" prefWidth="75.0" text="num" />
+              </columns>
+            </TableView>
+                <Button fx:id="btnAjouter" layoutX="317.0" layoutY="512.0" mnemonicParsing="false" onAction="#Ajouter" text="ajouter" />
+                <Button fx:id="btnModifier" layoutX="383.0" layoutY="512.0" mnemonicParsing="false" onAction="#Modifier" text="modifier" />
+                <Button fx:id="btnSupprimer" layoutX="458.0" layoutY="512.0" mnemonicParsing="false" onAction="#delete" text="supprimer" />
+            <TextField fx:id="tf_recherche" layoutX="382.0" layoutY="190.0" prefHeight="25.0" prefWidth="134.0" />
+            <Button layoutX="131.0" layoutY="512.0" mnemonicParsing="false" onAction="#Trie" text="tri par nom" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

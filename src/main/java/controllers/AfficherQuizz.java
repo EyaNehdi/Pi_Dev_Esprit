@@ -118,6 +118,8 @@ private FilteredList<Quizz> filteredQuizz;
 
         // Récupérez l'objet Quizz sélectionné dans le TableView
         Quizz quizzSelectionne = tv_quizz.getSelectionModel().getSelectedItem();
+        Stage currentStage = (Stage) btnModifier.getScene().getWindow();
+        currentStage.close();
 
         // Assurez-vous que l'objet Quizz n'est pas nul avant d'appeler initData
         if (quizzSelectionne != null) {

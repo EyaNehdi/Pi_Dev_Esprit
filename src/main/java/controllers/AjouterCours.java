@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import services.CoursService;
 
 import java.sql.SQLException;
@@ -24,34 +26,51 @@ public class AjouterCours {
     private Button btnAnnuler;
 
     @FXML
-    private TextArea fieldContenu;
+    private TextArea contenuf;
 
     @FXML
-    private TextField fieldTitre;
+    private TextField titref;
+@FXML
+private Button btnQuizz;
 
+    @FXML
+    public void Voir_Quizz() {
+        Stage stage = (Stage) btnLister.getScene().getWindow();
+        SceneChanger.changerScene("/AjouterQuizz.fxml", stage);
+    }
     @FXML
     public void Lister() {
         Stage stage = (Stage) btnLister.getScene().getWindow();
         SceneChanger.changerScene("/AfficherCours.fxml", stage);
     }
 
+
     @FXML
     private void AjouterCours() {
         // Validation de saisie
-        if (fieldTitre.getText().isEmpty() || fieldContenu.getText().isEmpty()) {
+        if (titref.getText().isEmpty() || contenuf.getText().isEmpty()) {
             afficherAlerte("Veuillez remplir tous les champs.");
             return;
         }
 
         // Vérification d'unicité
-        if (coursExisteDeja(fieldTitre.getText())) {
+        if (coursExisteDeja(titref.getText())) {
             afficherAlerte("Un cours avec ce titre existe déjà.");
             return;
         }
 
         // Ajout du cours
-        Cours cours = new Cours(fieldTitre.getText(), fieldContenu.getText());
+        Cours cours = new Cours(titref.getText(), contenuf.getText());
         CoursService serviceCours = new CoursService();
+        boolean  oeuvreAdded = true;
+
+        if (oeuvreAdded) {
+            Notifications.create()
+                    .title("Notification Title")
+                    .text("cours  AJOUTEE")
+                    .hideAfter(Duration.seconds(9))
+                    .showInformation();
+        }
 
         try {
             serviceCours.add(cours);

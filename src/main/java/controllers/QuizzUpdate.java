@@ -99,10 +99,20 @@ private Button btnRetour;
 
         try {
             // Fetch user data from the database
-            QuizzService us = new QuizzService();
-            Quizz quizzToUpdate = us.findById(idCu);
+            QuizzService quizzService = new QuizzService();
 
-            // Update user data
+            // Check uniqueness
+            if (quizzService.quizzExists(tf_question.getText())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Un quizz avec cette question existe déjà!");
+                alert.show();
+                return;
+            }
+
+            Quizz quizzToUpdate = quizzService.findById(idCu);
+
+            // Update quizz data
             quizzToUpdate.setQuestion(tf_question.getText());
             quizzToUpdate.setOption1(tf_option1.getText());
             quizzToUpdate.setOption2(tf_option2.getText());
@@ -110,8 +120,8 @@ private Button btnRetour;
             quizzToUpdate.setOption4(tf_option4.getText());
             quizzToUpdate.setCorrectAnswer(tf_correctAnswer.getText());
 
-            // Call the modifier method to update the user
-            us.update(quizzToUpdate);
+            // Call the modifier method to update the quizz
+            quizzService.update(quizzToUpdate);
 
             // Show success message
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -119,16 +129,16 @@ private Button btnRetour;
             successAlert.setContentText("Modification réussie !!");
             successAlert.show();
 
-
         } catch (SQLException ex) {
             ex.printStackTrace(); // Handle exception appropriately
             // Show error message
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText(null);
-            errorAlert.setContentText("An error occurred while updating user data!");
+            errorAlert.setContentText("An error occurred while updating quizz data!");
             errorAlert.show();
         }
     }
+
     public void Retour()
     {
         Stage stage = (Stage) btnRetour.getScene().getWindow();
