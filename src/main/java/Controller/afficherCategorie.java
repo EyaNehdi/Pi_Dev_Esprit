@@ -1,6 +1,7 @@
 package     Controller;
 
 import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -25,6 +26,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.CategorieService;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import Controller.afficherCategorie;
 
 public class afficherCategorie {
@@ -46,6 +49,8 @@ public class afficherCategorie {
 
         @FXML
         private Button btnSupprimer;
+        @FXML
+        private Button btnExport;
         private FilteredList<Categorie> filteredCategorie;
         @FXML
         void initialize() {
@@ -138,6 +143,38 @@ public class afficherCategorie {
                 SceneChanger.changerScene("/ajouterCategorie.fxml", stage);
         }
 
+        @FXML
+        private void ExportExcel(ActionEvent event) {
+                try {
+                        Workbook workbook = new XSSFWorkbook();
+                        Sheet sheet = workbook.createSheet("Liste des categories");
 
+                        // En-tête
+                        Row headerRow = sheet.createRow(0);
+                        headerRow.createCell(0).setCellValue("numSerie");
+                        headerRow.createCell(1).setCellValue("description");
+
+
+                        // Données
+                        ObservableList<Categorie> categorieList = FXCollections.observableList(serviceCategorie.readAll());
+                        for (int i = 0; i < categorieList.size(); i++) {
+                                Row row = sheet.createRow(i + 1);
+                                row.createCell(0).setCellValue(categorieList.get(i).getNumSerie());
+                                row.createCell(1).setCellValue(categorieList.get(i).getDescription());
+
+                        }
+
+                        // Sauvegarde du fichier
+                        String fileName = "liste_categorie.xlsx";
+                        try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+                                workbook.write(fileOut);
+                                fileOut.flush();
+                        }
+
+                        System.out.println("Export Excel réussi.");
+                } catch (IOException | SQLException e) {
+                        e.printStackTrace();
+                }
+        }
 
 }

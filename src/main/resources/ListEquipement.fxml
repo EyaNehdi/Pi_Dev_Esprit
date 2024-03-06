@@ -83,25 +83,28 @@
             </children></AnchorPane>
         <Pane layoutX="262.0" layoutY="8.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="8.0">
             <children>
-                <Pane layoutX="-25.0" layoutY="-178.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
+                <Pane layoutX="-33.0" layoutY="-195.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
                 <TableView fx:id="tv_equipement" layoutX="14.0" layoutY="225.0" onMouseClicked="#mouseClicked" prefHeight="316.0" prefWidth="783.0">
                     <columns>
                   <TableColumn fx:id="id_C" editable="false" minWidth="0.0" prefWidth="0.0" sortable="false" text="ID" visible="false" />
                         <TableColumn fx:id="nom" prefWidth="242.0" text="Nom" />
-                        <TableColumn fx:id="statut" prefWidth="482.0" text="Statut" />
-                        <TableColumn fx:id="type" prefWidth="262.0" text="Type" />
+                        <TableColumn fx:id="statut" prefWidth="189.0" text="Statut" />
+                        <TableColumn fx:id="type" prefWidth="555.0" text="Type" />
                     </columns>
                 </TableView>
-                <Button layoutX="476.0" layoutY="572.0" mnemonicParsing="false" text="Retour" />
-                <Button fx:id="btnSupprimer" layoutX="561.0" layoutY="572.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
-                <Button fx:id="btnModifier" layoutX="656.0" layoutY="572.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier" />
+                <Button layoutX="763.0" layoutY="14.0" mnemonicParsing="false" text="Retour" />
+                <Button fx:id="btnSupprimer" layoutX="616.0" layoutY="560.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" />
+                <Button fx:id="btnModifier" layoutX="716.0" layoutY="560.0" mnemonicParsing="false" onAction="#Modifier" text="Modifier" />
                 <TextField fx:id="tf_recherche" layoutX="642.0" layoutY="174.0" />
                 <Label layoutX="561.0" layoutY="178.0" text="Recherche" />
-                <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="597.0" layoutY="29.0">
+                <ImageView fitHeight="72.0" fitWidth="200.0" layoutX="552.0" layoutY="27.0">
                     <image>
                         <Image url="@image/logo.jpg" />
                     </image>
                 </ImageView>
+            <Button fx:id="btnExport" layoutX="135.0" layoutY="560.0" mnemonicParsing="false" onAction="#ExportExcel" text="Export Excel" />
+            <Button layoutX="230.0" layoutY="560.0" mnemonicParsing="false" onAction="#pdf_user" text="Export Pdf" />
+            <Button layoutX="37.0" layoutY="560.0" mnemonicParsing="false" onAction="#trie" text="tri par nom" />
             </children>
         </Pane>
     </children>

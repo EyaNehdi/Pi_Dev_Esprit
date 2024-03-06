@@ -1,5 +1,6 @@
 package Controller;
-
+import java.util.ArrayList;
+import java.util.List;
 import entities.Equipement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,11 +18,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import services.EquipementService;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.stream.Collectors;
 
+import utils.MyDatabase;
 public class afficherEquipement {
     EquipementService serviceEquipement = new EquipementService();
 
@@ -48,11 +62,13 @@ public class afficherEquipement {
 
     @FXML
     private Button btnSupprimer;
+    @FXML
+    private Button btnExport;
 
     private FilteredList<Equipement> filteredEquipement;
     ObservableList<Equipement> equipements = FXCollections.observableArrayList();
 
-
+    private MyDatabase myDatabase = MyDatabase.getInstance();
     @FXML
     void initialize() {
         try {
@@ -142,4 +158,85 @@ public class afficherEquipement {
             e.printStackTrace();
         }
     }
+    public List<Equipement> triEmail() throws SQLException {
+
+        List<Equipement> list1 = new ArrayList<>();
+        List<Equipement> list2 = serviceEquipement.readAll();
+
+        list1 = list2.stream().sorted((o1, o2) -> o1.getNom().compareTo(o2.getNom())).collect(Collectors.toList());
+        return list1;
+
+    }
+    @FXML
+    private void trie() throws SQLException {
+        EquipementService equipementService = new EquipementService();
+        Equipement equipement = new Equipement();
+        List<Equipement> equipements1 = triEmail();
+        ObservableList<Equipement> observableCoursList = FXCollections.observableArrayList(equipements1);
+
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        statut.setCellValueFactory(new PropertyValueFactory<>("statut"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        tv_equipement.setItems(observableCoursList);
+
+    }
+    @FXML
+    private void pdf_user(ActionEvent event) {
+        System.out.println("hello");
+        try{
+
+            JasperDesign jDesign = JRXmlLoader.load("C:\\Users\\CBE\\Desktop\\Workshop3A20JDBC\\src\\main\\resources\\report.jrxml");
+
+            JasperReport jReport = JasperCompileManager.compileReport(jDesign);
+            Connection connection = myDatabase.getConnection();
+
+            JasperPrint jPrint = JasperFillManager.fillReport(jReport, null, connection);
+
+            JasperViewer viewer = new JasperViewer(jPrint, false);
+
+            viewer.setTitle("Liste des equipement");
+            viewer.show();
+            System.out.println("hello");
+
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    @FXML
+    private void ExportExcel(ActionEvent event) {
+        try {
+            Workbook workbook = new XSSFWorkbook();
+            Sheet sheet = workbook.createSheet("Liste des equipement");
+
+            // En-tête
+            Row headerRow = sheet.createRow(0);
+            headerRow.createCell(0).setCellValue("nom");
+            headerRow.createCell(1).setCellValue("statut");
+            headerRow.createCell(2).setCellValue("type");
+
+
+
+            // Données
+            ObservableList<Equipement> equipementList = FXCollections.observableList(serviceEquipement.readAll());
+            for (int i = 0; i < equipementList.size(); i++) {
+                Row row = sheet.createRow(i + 1);
+                row.createCell(0).setCellValue(equipementList.get(i).getNom());
+                row.createCell(1).setCellValue(equipementList.get(i).getStatut());
+                row.createCell(2).setCellValue(equipementList.get(i).getType());
+            }
+
+            // Sauvegarde du fichier
+            String fileName = "liste_equipement.xlsx";
+            try (FileOutputStream fileOut = new FileOutputStream(fileName)) {
+                workbook.write(fileOut);
+                fileOut.flush();
+            }
+
+            System.out.println("Export Excel réussi.");
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

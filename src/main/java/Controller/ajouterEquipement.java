@@ -27,7 +27,7 @@ public class ajouterEquipement {
 
     private EquipementService equipementService;
 
-    public ajouterEquipement() {
+    public ajouterEquipement() { 
         this.equipementService = new EquipementService();
     }
 

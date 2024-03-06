@@ -75,7 +75,7 @@
         <Pane layoutX="262.0" prefHeight="649.0" prefWidth="631.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="262.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Pane layoutX="-25.0" layoutY="-214.0" prefHeight="303.0" prefWidth="467.0" rotate="41.6" style="-fx-background-color: orange; -fx-background-radius: 70;" />
-                <TableView fx:id="tv_categorie" layoutX="8.0" layoutY="204.0" onMouseClicked="#mouseClicked" prefHeight="309.0" prefWidth="801.0">
+                <TableView fx:id="tv_categorie" layoutX="8.0" layoutY="198.0" onMouseClicked="#mouseClicked" prefHeight="309.0" prefWidth="801.0">
                     <columns>
                   <TableColumn fx:id="numSerie2" editable="false" prefWidth="160.0" sortable="false" text="id_C" visible="false" />
                         <TableColumn fx:id="numSerie" prefWidth="160.0" text="numSerie" />
@@ -91,6 +91,7 @@
                   <Image url="@image/logo.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="btnExport" layoutX="300.0" layoutY="583.0" mnemonicParsing="false" onAction="#ExportExcel" text="Export Excel" />
             </children>
         </Pane>
     </children>
