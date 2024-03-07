@@ -89,10 +89,5 @@
             <Image url="@Images/Capture_d_écran_2024-02-29_221258-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnGenerateQRCode" layoutX="681.0" layoutY="490.0" mnemonicParsing="false" onAction="#generateQRCode" style="-fx-background-color: #EBF5FB; -fx-background-radius: 20;" text="Générer QR Code">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

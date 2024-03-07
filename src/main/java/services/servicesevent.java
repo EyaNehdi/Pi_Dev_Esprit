@@ -55,28 +55,6 @@ public class servicesevent implements Iservice<event> {
 
     @Override
     public boolean modifier(event event) throws SQLException {
-        LocalDate dateActuelle = LocalDate.now();
-        LocalDate dateDebut = event.getDate_debut().toLocalDate();
-        LocalDate dateFin = event.getDate_fin().toLocalDate();
-
-        // Vérifier si la date de début est antérieure à la date actuelle
-        if (dateDebut.isBefore(dateActuelle)) {
-            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "La date de début doit être postérieure à la date actuelle.");
-            return false;
-        }
-
-        // Vérifier si la date de fin est antérieure à la date de début
-        if (dateFin.isBefore(dateDebut)) {
-            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "La date de fin doit être postérieure à la date de début.");
-            return false;
-        }
-
-        // Vérifier si un événement avec les mêmes données existe déjà
-        if (existeEvent(event.getNom_evenement(), event.getDate_debut(), event.getDate_fin())) {
-            showAlert(Alert.AlertType.ERROR, "Erreur de modification", "Un événement avec les mêmes données existe déjà.");
-            return false;
-        }
-
         String req = "UPDATE event SET nom_evenement=?, date_debut=?  , date_fin =? WHERE id=?";
         try (PreparedStatement ps = connection.prepareStatement(req)) {
             ps.setString(1, event.getNom_evenement());

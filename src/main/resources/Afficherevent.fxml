@@ -34,7 +34,7 @@
             <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Button>
-      <ImageView fitHeight="310.0" fitWidth="232.0" layoutX="665.0" layoutY="253.0">
+      <ImageView fitHeight="288.0" fitWidth="231.0" layoutX="666.0" layoutY="275.0">
          <image>
             <Image url="@Images/c.png" />         </image>
       </ImageView>
@@ -95,16 +95,26 @@
             <Image url="@Images/Capture_d_écran_2024-02-28_153711-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button layoutX="505.0" layoutY="497.0" mnemonicParsing="false" onAction="#btn_reservation" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 20;" text="Réservation">
-         <font>
-            <Font name="Comic Sans MS" size="15.0" />
-         </font>
-      </Button>
-      <TextField fx:id="fxrecherche" layoutX="407.0" layoutY="28.0" onAction="#chercher" promptText="chercher événement" style="-fx-background-radius: 15;" />
-      <ImageView fitHeight="42.0" fitWidth="58.0" layoutX="550.0" layoutY="7.0">
+      <TextField fx:id="fxrecherche" layoutX="332.0" layoutY="28.0" onAction="#chercher" promptText="chercher événement" style="-fx-background-radius: 15;" />
+      <ImageView fitHeight="42.0" fitWidth="58.0" layoutX="476.0" layoutY="7.0" rotate="-6.3">
          <image>
             <Image url="@Images/Capture_d_écran_2024-03-05_224931-removebg-preview.png" />
          </image>
       </ImageView>
+      <Button layoutX="749.0" layoutY="91.0" mnemonicParsing="false" onAction="#Trie" prefHeight="42.0" prefWidth="122.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="tri par nom">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="pdf" layoutX="749.0" layoutY="161.0" mnemonicParsing="false" onAction="#telecharge" prefHeight="42.0" prefWidth="122.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="PDF">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Excel" layoutX="749.0" layoutY="220.0" mnemonicParsing="false" onAction="#telecharge_e" prefHeight="42.0" prefWidth="122.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Excel">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

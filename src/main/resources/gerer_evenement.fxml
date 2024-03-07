@@ -107,5 +107,19 @@
             <Image url="@Images/Capture_d_écran_2024-02-28_153711-removebg-preview.png" />
          </image>
       </ImageView>
+      <Button fx:id="btn_Song" layoutX="573.0" layoutY="485.0" mnemonicParsing="false" onAction="#song" prefHeight="50.0" prefWidth="175.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Song">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Calendrier" layoutX="726.0" layoutY="183.0" mnemonicParsing="false" onAction="#Calendrier" prefHeight="50.0" prefWidth="130.0" style="-fx-background-radius: 20; -fx-background-color: #EBF5FB;" text="Calendrier">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="dateLabel" layoutX="691.0" layoutY="256.0" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: #EBF5FB; -fx-background-radius: 20;" text="                   date">
+         <font>
+            <Font name="Comic Sans MS" size="15.0" />
+         </font></Label>
    </children>
 </AnchorPane>

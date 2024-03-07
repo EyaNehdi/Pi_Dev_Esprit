@@ -14,7 +14,9 @@ public class event {
    public event (String nom, LocalDate date){
 
    }
+    public event (){
 
+    }
     public event(int id, String nom_evenement, Date date_debut, Date date_fin) {
         this.id = id;
         this.nom_evenement = nom_evenement;
